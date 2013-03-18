@@ -42,7 +42,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      invoke :'passenger:restart'
+      queue 'touch tmp/restart.txt'
     end
   end
 end
