@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'sqlite3' 	# db
 gem 'puma'		# server
+gem "mina"
 
 gem "jquery-rails"
 gem "jquery-ui-rails"
