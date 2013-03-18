@@ -42,7 +42,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue %[kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})]
+      queue %[bundle exec pumactl restart]
     end
   end
 end
