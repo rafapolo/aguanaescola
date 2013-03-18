@@ -8,7 +8,8 @@ class AdminController < ApplicationController
   end
 
   def index
-  	redirect_to "/admin/escolas"
+  	admin = current_user.is_monitor? ? "/admin/coletas" : "/admin/monitores"
+    redirect_to admin
   end
   
   def escolas
@@ -16,7 +17,7 @@ class AdminController < ApplicationController
   end
 
   def monitores
-  	@monitores = Pessoa.where(:is_monitor)
+  	@monitores = Pessoa.monitores
   end
 
   def coletas

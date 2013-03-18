@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 gem 'sqlite3' 	# db
 gem 'puma'		# server
 
+gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "paperclip"
 

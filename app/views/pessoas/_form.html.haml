@@ -1,19 +1,30 @@
-= form_for current_user, :html => { :class => 'form-horizontal' } do |f|
-  = image_tag current_user.avatar :thumb
+- unless @pessoa.errors.empty?
+  .alert.alert-error
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    - @pessoa.errors.full_messages.each do |msg|
+      %li= msg
+
+= form_for @pessoa, :html => { :class => 'form-horizontal' } do |f|  
   .control-group
     = f.label :Avatar, :class => 'control-label'
     .controls
+      = image_tag @pessoa.avatar :thumb
       = f.file_field :avatar, :class => 'text_field'
 
   .control-group
     = f.label :nome, :class => 'control-label'
     .controls
       = f.text_field :nome, :class => 'text_field'
+
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'text_field'
   
   .control-group
     = f.label :escola_id, :class => 'control-label'
     .controls
-      = f.number_field :escola_id, :class => 'number_field'
+      = f.select(:escola_id, Escola.all.collect {|p| [ p.nome, p.id ] }, {:include_blank => 'Selecione...'})
   
   .form-actions
     = f.submit "Salvar", :class => 'btn btn-primary'

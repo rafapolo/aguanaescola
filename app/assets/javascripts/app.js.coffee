@@ -4,4 +4,4 @@ $(document).ready ->
   $("a[rel=tooltip]").tooltip()
 
 
-  $("li>a[href='"+window.location.pathname+"']").parent().addClass('active')
+  $("ul.nav>li>a[href='"+window.location.pathname+"']").parent().addClass('active')

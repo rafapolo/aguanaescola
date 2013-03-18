@@ -17,6 +17,6 @@
               %i.icon-edit
               Editar
 
-            = link_to '<i class="icon-trash"></i>'.html_safe, escola_path(escola), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Quer mesmo exclui a Escola e todos seus dados?')) }, :class => 'btn btn-danger'
+            = link_to '<i class="icon-trash"></i>'.html_safe, escola_path(escola), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Quer mesmo excluir a Escola e todos seus dados?')) }, :class => 'btn btn-danger'
 
 = link_to 'Nova', new_escola_path, :class => 'btn btn-primary'

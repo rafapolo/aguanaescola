@@ -13,15 +13,39 @@
 
 ActiveRecord::Schema.define(:version => 20130317155323) do
 
-  create_table "coleta", :force => true do |t|
-    t.date     "data"
+  create_table "coletas", :force => true do |t|
+    t.string   "local"
     t.text     "info"
     t.integer  "escola_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "classe_coname"
+    t.datetime "hora_coleta"
+    t.string   "condicoes_climaticas"
+    t.string   "temperatura_agua"
+    t.string   "temperatura_ambiente"
+    t.string   "oxigenio_dissolvido"
+    t.string   "ph"
+    t.string   "amonia"
+    t.string   "fosfato"
+    t.string   "cloro"
+    t.string   "turbidez"
+    t.string   "cloretos"
+    t.string   "dqo_campo"
+    t.string   "coliformes"
+    t.string   "dbo"
+    t.string   "detergentes"
+    t.boolean  "algas"
+    t.boolean  "espuma"
+    t.boolean  "corpos_flutuantes"
+    t.boolean  "materialdedimentavel"
+    t.boolean  "cheiro"
+    t.boolean  "plantas_aquaticas"
+    t.boolean  "peixes_animais"
+    t.boolean  "cobertura_vegetal"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
-  add_index "coleta", ["escola_id"], :name => "index_coleta_on_escola_id"
+  add_index "coletas", ["escola_id"], :name => "index_coletas_on_escola_id"
 
   create_table "escolas", :force => true do |t|
     t.string   "nome"

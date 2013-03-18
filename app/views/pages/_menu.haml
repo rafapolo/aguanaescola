@@ -38,33 +38,35 @@
       %form.navbar-search
         %input.search-query{:placeholder => "Pesquisar", :type => "text", :style=>"width: 180px"}
         %input#search-submit{:type => "submit", :value => "Search"}
-      %li.divider-vertical  
-      %li
-        %a{:href => "/sobre"} 
-          %i.icon-question-sign
-          Sobre        
+      - unless current_user
+        %li.divider-vertical        
+        %li
+          %a{:href => "/sobre"} 
+            %i.icon-question-sign
+            Sobre        
       %li.divider-vertical              
         - if current_user
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %i.icon-user
-              Rafael Polo
+              = current_user.nome
               %b.caret
             %ul.dropdown-menu
               %li
                 %a{:href => "#{url_for current_user}"} 
                   %i.icon-user
-                  Meu Perfil
-              %li
-                %a{:href => "#"} 
-                  %i.icon-book
-                  Minha Escola
-              - if current_user.is_admin?
+                  Meu Perfil              
+              - if current_user.is_admin? || current_user.is_monitor?
                 %li.divider
                 %li
                   %a{:href => "/admin"} 
                     %i.icon-lock
                     Administrar
+              - else
+                %li
+                  %a{:href => "#{url_for current_user.escola}"} 
+                    %i.icon-book
+                    Minha Escola
 
               %li.divider
               %li

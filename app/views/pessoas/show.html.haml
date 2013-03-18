@@ -1,14 +1,19 @@
 .avatar= image_tag @pessoa.avatar :thumb
 
 %h2= @pessoa.nome
+- if @pessoa.is_monitor?
+	%p 
+		%i.icon-briefcase
+		%span.bold Monitor
+		= "#{@pessoa.escola.nome} - #{@pessoa.escola.municipio}"
 %hr
 
 - if @pessoa==current_user
-  - edit = edit_pessoa_path current_user
-  %a{:href=>edit, :class=>"btn btn-primary"}
-    %i.icon-edit
-    Editar Perfil
-  - if current_user.is_admin?
-    %a{:href=>'/admin', :class=>"btn btn-warning"}
-      %i.icon-lock
-      Administrar
+	- edit = edit_pessoa_path current_user
+	%a{:href=>edit, :class=>"btn btn-primary"}
+		%i.icon-edit
+		Editar Perfil
+	- if current_user.is_admin?
+		%a{:href=>'/admin', :class=>"btn btn-warning"}
+			%i.icon-lock
+			Administrar

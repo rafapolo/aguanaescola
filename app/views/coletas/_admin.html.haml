@@ -1,0 +1,24 @@
+- if @coletas_count > 0
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= Local
+        %th= Info
+        %th= model_class.human_attribute_name(:escola_id)
+        %th= model_class.human_attribute_name(:created_at)
+        %th=t '.actions', :default => t("helpers.actions")
+    %tbody    
+      - @coleta.each do |coleta|
+        %tr
+          %td= link_to coleta.id, coleta_path(coleta)
+          %td= coleta.info
+          %td= "#{m.escola.nome} #{m.escola.municipio}"
+          %td= format coleta.created_at
+          %td
+            %a{:href=>edit_coleta_path(coleta), :class => 'btn btn-mini btn-primary'} 
+              %i.icon-edit
+              Editar
+
+            = link_to '<i class="icon-trash"></i>'.html_safe, coleta_path(coleta), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Quer mesmo excluir a Coleta e todos seus dados?')) }, :class => 'btn btn-danger'
+
+= link_to 'Nova', new_coleta_path, :class => 'btn btn-primary'

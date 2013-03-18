@@ -1,16 +1,17 @@
 %h4{:style=>"margin-bottom: 25px; margin-left:15px"} 
 	%i.icon-lock
-	Área do Administrador
+	= "Área do #{auth_type}"
 
 %ul.nav.nav-tabs
-	%li
-		%a{:href => "/admin/monitores"} 
-			%i.icon-user
-			= "Monitores (#{@monitores_count})"
-	%li
-		%a{:href => "/admin/escolas"} 
-			%i.icon-book
-			= "Escolas (#{@escolas_count})"			
+	- if current_user.is_admin?
+		%li
+			%a{:href => "/admin/monitores"} 
+				%i.icon-user
+				= "Monitores (#{@monitores_count})"
+		%li
+			%a{:href => "/admin/escolas"} 
+				%i.icon-book
+				= "Escolas (#{@escolas_count})"
 	%li
 		%a{:href => "/admin/coletas"} 
 			%i.icon-list
