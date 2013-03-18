@@ -3,7 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/rvm'
 
-set :user, 'root'
+set :user, 'agua'
 set :domain, 'agendaaguanaescola.eco.br'
 set :deploy_to, '/home/agua/aguanaescola.git'
 set :repository, 'git://github.com/rafapolo/aguanaescola.git'
@@ -42,8 +42,7 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue %[echo $release_path]
-      queue %[bundle exec pumactl restart]
+      invoke :'passenger:restart'
     end
   end
 end
