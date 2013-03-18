@@ -1,0 +1,17 @@
+%h4{:style=>"margin-bottom: 25px; margin-left:15px"} 
+	%i.icon-lock
+	Área do Administrador
+
+%ul.nav.nav-tabs
+	%li
+		%a{:href => "/admin/monitores"} 
+			%i.icon-user
+			= "Monitores (#{@monitores_count})"
+	%li
+		%a{:href => "/admin/escolas"} 
+			%i.icon-book
+			= "Escolas (#{@escolas_count})"			
+	%li
+		%a{:href => "/admin/coletas"} 
+			%i.icon-list
+			= "Coletas (#{@coletas_count})"

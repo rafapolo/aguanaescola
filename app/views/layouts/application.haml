@@ -1,0 +1,25 @@
+%html
+  %head
+    %title Água na Escola
+
+    = javascript_include_tag "all"
+    = yield :javascripts    
+    = stylesheet_link_tag    "all"
+    = favicon_link_tag "/assets/favicon.ico"
+    = csrf_meta_tags
+    
+    %body
+      #meio      
+        #topo                    
+          = render :partial => "pages/menu"
+          .logo= image_tag "logo.png"          
+        #todo
+          = yield
+
+      %footer
+        .rj= image_tag 'logo_governo_rj.jpg'
+        %p{:style=>"float:left; margin-left: 2px"} Agenda Água na Escola - ASSEAGUA / SEE / SEA - RJ 
+        %p.contato 
+          %a{:href=>"/sobre"}
+            %i.icon-envelope
+              Contato

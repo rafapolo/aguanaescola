@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  titulo: MyString
+  conteudo: MyText
+  mediable: 
+
+two:
+  titulo: MyString
+  conteudo: MyText
+  mediable: 

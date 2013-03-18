@@ -1,0 +1,23 @@
+#myCarousel.carousel.slide
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+  .carousel-inner
+    .item.active
+      %img{:alt => "", :src => "assets/1.jpg"}/
+      .carousel-caption
+        %h4 21 dez 2013 - Mapeamento em Lumiar 
+        %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.
+    .item
+      %img{:alt => "", :src => "assets/2.jpg"}/
+      .carousel-caption
+        %h4 18 dez 2013 - Colégio Anchieta - Nova Fribugo / RJ
+        %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.
+    .item
+      %img{:alt => "", :src => "assets/3.jpg"}/
+      .carousel-caption
+        %h4 15 dez 2013 - Coleta em Itaperuna
+        %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
+  %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›

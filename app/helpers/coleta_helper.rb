@@ -1,0 +1,2 @@
+module ColetaHelper
+end

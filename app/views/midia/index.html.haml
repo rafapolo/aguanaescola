@@ -1,0 +1,23 @@
+%h1 Listing midia
+
+%table
+  %tr
+    %th Titulo
+    %th Conteudo
+    %th Mediable
+    %th
+    %th
+    %th
+
+  - @midia.each do |midium|
+    %tr
+      %td= midium.titulo
+      %td= midium.conteudo
+      %td= midium.mediable
+      %td= link_to 'Show', midium
+      %td= link_to 'Edit', edit_midium_path(midium)
+      %td= link_to 'Destroy', midium, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Midium', new_midium_path

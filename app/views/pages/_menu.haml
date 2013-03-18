@@ -1,0 +1,78 @@
+.navbar{:style=>"margin-left: 150px; width: 755px"}
+  .navbar-inner
+    %ul.nav
+      %li
+        %a{:href => "/"} 
+          %i.icon-home
+          Novidades
+      %ul.nav
+        // escolas
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.icon-book
+            Escolas
+            %b.caret
+          %ul.dropdown-menu
+            - Escola.all.each do |e|
+              %li
+                %a{:href => "#{url_for e}"} 
+                  %i.icon-book
+                  = "#{e.nome} - #{e.municipio}"
+
+          // coletas
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.icon-list
+            Coletas
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} 
+                %i.icon-book
+                Colégio Anchieta - Nova Friburgo
+            %li
+              %a{:href => "#"} 
+                %i.icon-book
+                Escola Naval - Cantagalo
+    %ul.nav.pull-right
+      %form.navbar-search
+        %input.search-query{:placeholder => "Pesquisar", :type => "text", :style=>"width: 180px"}
+        %input#search-submit{:type => "submit", :value => "Search"}
+      %li.divider-vertical  
+      %li
+        %a{:href => "/sobre"} 
+          %i.icon-question-sign
+          Sobre        
+      %li.divider-vertical              
+        - if current_user
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %i.icon-user
+              Rafael Polo
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#{url_for current_user}"} 
+                  %i.icon-user
+                  Meu Perfil
+              %li
+                %a{:href => "#"} 
+                  %i.icon-book
+                  Minha Escola
+              - if current_user.is_admin?
+                %li.divider
+                %li
+                  %a{:href => "/admin"} 
+                    %i.icon-lock
+                    Administrar
+
+              %li.divider
+              %li
+                %a{:href => "/logout"} 
+                  %i.icon-off
+                  Sair
+        - else
+          %li
+            %a{:href => "/login"} 
+              %i.icon-lock
+              Acessar

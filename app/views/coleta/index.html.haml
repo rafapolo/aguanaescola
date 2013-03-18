@@ -1,0 +1,23 @@
+%h1 Listing coleta
+
+%table
+  %tr
+    %th Data
+    %th Info
+    %th Escola
+    %th
+    %th
+    %th
+
+  - @coleta.each do |coletum|
+    %tr
+      %td= coletum.data
+      %td= coletum.info
+      %td= coletum.escola
+      %td= link_to 'Show', coletum
+      %td= link_to 'Edit', edit_coletum_path(coletum)
+      %td= link_to 'Destroy', coletum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Coletum', new_coletum_path

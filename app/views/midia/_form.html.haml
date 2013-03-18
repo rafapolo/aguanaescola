@@ -1,0 +1,19 @@
+= form_for @midium do |f|
+  - if @midium.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@midium.errors.count, "error")} prohibited this midium from being saved:"
+      %ul
+        - @midium.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :titulo
+    = f.text_field :titulo
+  .field
+    = f.label :conteudo
+    = f.text_area :conteudo
+  .field
+    = f.label :mediable
+    = f.text_field :mediable
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,5 @@
+.title= @escola.nome
+.subtitle= @escola.municipio
+
+- @escola.coletas.each do |c|
+  = link_to c

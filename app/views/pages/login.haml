@@ -1,0 +1,16 @@
+.well.login
+	- if flash[:error]
+		.alert.alert-error
+			%button.close{"data-dismiss" => "alert", :type => "button"} ×
+			Opz, senha errada.
+	= form_for(:auth, :url => '/auth') do |form|
+		%p
+			= form.label :email
+			= form.text_field :email
+		%p
+			= form.label :senha
+			= form.password_field :senha
+		= form.submit 'Login', :class=>"btn btn-primary"
+	%hr
+	%p.info
+		Cadastre-se através do Monitor de sua Escola.
