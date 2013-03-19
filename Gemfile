@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'sqlite3' 	# db
-gem 'capistrano'
 
 gem "jquery-rails"
 gem "jquery-ui-rails"
@@ -20,5 +19,6 @@ gem "twitter-bootstrap-rails"
 group :development do
 	gem 'puma'
 	gem 'pry'
-	gem 'pry-debugger'
+	gem 'pry-debugger'	
+	gem 'mina'
 end

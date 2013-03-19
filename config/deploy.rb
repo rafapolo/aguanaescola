@@ -1,17 +1,26 @@
-default_run_options[:pty] = true 
+require 'mina/git'
+require 'mina/bundler'
+require 'mina/rvm'
 
-set :application, "agendaaguanaescola.eco.br"
+set :domain, 'agendaaguanaescola.eco.br'
+set :user, 'agua'
+set :repository, 'git://github.com/rafapolo/aguanaescola.git'
+set :deploy_to,  '/home/agua/agendaaguanaescola.eco.br'
 
-set :scm, :git
-set :user, "agua"
-set :branch, "master"
-set :repository,  "git://github.com/rafapolo/aguanaescola.git"
-set :deploy_to,  "/home/agua/#{application}"
-role :app, 'agendaaguanaescola.eco.br'
+task :environment do
+  invoke :'rvm:use[ruby-2.0.0-p0@global]'
+end
 
-namespace :deploy do
-  task :restart, :roles => :app do
-  	run "#{try_sudo} bundle install --deployment"
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+task :deploy do
+  deploy do
+    # Preparations here
+    invoke :'git:clone'
+    queue 'bundle install'
+    #invoke :'bundle:install'
   end
+end
+
+task :restart do
+  queue "ln -nfs #{File.join(shared_path, 'db/prod.sqlite3')} #{File.join(release_path, 'db/prod.sqlite3')}"
+  queue 'touch tmp/restart.txt'
 end

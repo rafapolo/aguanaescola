@@ -6,6 +6,6 @@ development:
 
 production:
   adapter: sqlite3
-  database: ../shared/db/prod.sqlite3
+  database: db/prod.sqlite3
   pool: 5
   timeout: 5000
