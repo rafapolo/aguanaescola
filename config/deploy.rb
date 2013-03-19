@@ -13,14 +13,12 @@ end
 
 task :deploy do
   deploy do
-    # Preparations here
     invoke :'git:clone'
     queue 'bundle install'
-    #invoke :'bundle:install'
   end
 end
 
 task :restart do
-  queue "ln -nfs #{File.join(shared_path, 'db/prod.sqlite3')} #{File.join(release_path, 'db/prod.sqlite3')}"
+  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 db/prod.sqlite3"
   queue 'touch tmp/restart.txt'
 end
