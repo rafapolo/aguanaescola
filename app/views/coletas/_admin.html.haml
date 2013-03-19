@@ -2,18 +2,18 @@
   %table.table.table-striped
     %thead
       %tr
-        %th= Local
-        %th= Info
-        %th= model_class.human_attribute_name(:escola_id)
-        %th= model_class.human_attribute_name(:created_at)
-        %th=t '.actions', :default => t("helpers.actions")
+        %th Local
+        %th Monitor
+        %th Escola
+        %th Quando
+        %th
     %tbody    
-      - @coleta.each do |coleta|
+      - @coletas.each do |coleta|
         %tr
-          %td= link_to coleta.id, coleta_path(coleta)
-          %td= coleta.info
-          %td= "#{m.escola.nome} #{m.escola.municipio}"
-          %td= format coleta.created_at
+          %td= link_to coleta.local, coleta_path(coleta)
+          %td= coleta.pessoa.nome
+          %td= "#{coleta.escola.nome} - #{coleta.escola.municipio}"
+          %td= format_datetime coleta.hora_coleta
           %td
             %a{:href=>edit_coleta_path(coleta), :class => 'btn btn-mini btn-primary'} 
               %i.icon-edit

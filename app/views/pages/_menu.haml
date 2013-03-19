@@ -26,14 +26,11 @@
             Coletas
             %b.caret
           %ul.dropdown-menu
-            %li
-              %a{:href => "#"} 
-                %i.icon-book
-                Colégio Anchieta - Nova Friburgo
-            %li
-              %a{:href => "#"} 
-                %i.icon-book
-                Escola Naval - Cantagalo
+            - Coleta.all.each do |c|
+              %li
+                %a{:href => "#{url_for c}"} 
+                  %i.icon-list
+                  = "#{c.local} - #{c.escola.nome}"
     %ul.nav.pull-right
       %form.navbar-search
         %input.search-query{:placeholder => "Pesquisar", :type => "text", :style=>"width: 180px"}

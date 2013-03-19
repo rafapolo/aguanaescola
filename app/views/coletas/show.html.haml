@@ -1,21 +1,95 @@
-- model_class = Coletum
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human
+.title
+  %i.icon-list
+  = @coleta.local
+.subtitle
+  %i.icon-book
+  = @coleta.escola.nome
 
-%p
-  %strong= model_class.human_attribute_name(:data) + ':'
-  %br
-  = @coleta.data
-%p
-  %strong= model_class.human_attribute_name(:info) + ':'
-  %br
-  = @coleta.info
-%p
-  %strong= model_class.human_attribute_name(:escola_id) + ':'
-  %br
-  = @coleta.escola_id
+%p{:stye=>"margin-top:10px"}
+%span.bold{:style=>"font-size: 13px"} Data:
+%span= format_datetime @coleta.hora_coleta
+    
+%hr
 
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), coletas_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_coleta_path(@coleta), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), coleta_path(@coleta), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+%table.table.table-striped{:style=>"float: left; width: 400px"}
+  %thead
+    %tr
+      %th Elemento
+      %th Quantidade
+  %tbody        
+    %tr
+      %td Temperatura da Água
+      %td= @coleta.temperatura_agua
+    %tr
+      %td Temperatura do Ambiente
+      %td= @coleta.temperatura_ambiente
+    %tr
+      %td Oxigênio dissolvido
+      %td= @coleta.oxigenio_dissolvido
+    %tr
+      %td pH
+      %td= @coleta.ph
+    %tr
+      %td Amônia
+      %td= @coleta.amonia
+    %tr
+      %td Ferro
+      %td= @coleta.ferro
+    %tr
+      %td Dureza
+      %td= @coleta.dureza
+    %tr
+      %td Fosfato
+      %td= @coleta.fosfato
+    %tr
+      %td Cloro
+      %td= @coleta.cloro
+    %tr
+      %td Turbidez
+      %td= @coleta.turbidez
+    %tr
+      %td Cloretos
+      %td= @coleta.cloretos
+    %tr
+      %td QDO de Campo
+      %td= @coleta.dqo_campo
+    %tr
+      %td Coliformes
+      %td= @coleta.coliformes
+    %tr
+      %td DBO
+      %td= @coleta.dbo
+    %tr
+      %td Detergentes
+      %td= @coleta.detergentes    
+
+%table.table.table-striped{:style=>"float: right; width: 300px"}
+  %thead
+    %tr
+      %th Elemento
+      %th Encontrado
+  %tbody        
+    %tr
+      %td Algas
+      %td= b(@coleta.algas)
+    %tr
+      %td Espuma
+      %td= b(@coleta.espuma)
+    %tr
+      %td Corpos flutuantes
+      %td= b(@coleta.corpos_flutuantes)
+    %tr
+      %td Material Sedimentável
+      %td= b(@coleta.materialsedimentavel)            
+    %tr
+      %td Cheiro
+      %td= b(@coleta.cheiro)
+    %tr
+      %td Plantas Aquáticas
+      %td= b(@coleta.plantas_aquaticas)
+    %tr
+      %td Peixes e outros animais
+      %td= b(@coleta.peixes_animais)
+    %tr
+      %td Cobertura Vegetal
+      %td= b(@coleta.cobertura_vegetal)

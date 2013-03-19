@@ -10,6 +10,7 @@ class Pessoa < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :thumb => "64x64>" }, 
     :default_url => "/assets/default_user.png",
+    :url => "/uploads/:class/:attachment/:style/:filename",
     :path => ":rails_root/public/uploads/:class/:attachment/:style/:filename"
   
   validates_attachment :avatar,

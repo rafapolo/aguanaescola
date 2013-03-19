@@ -1,10 +1,10 @@
 class Coleta < ActiveRecord::Base
 	belongs_to :escola
-	attr_accessible :titulo, :info, :escola_id
-
-	validates_presence_of :titulo, :escola
+	belongs_to :pessoa
+	attr_accessible :titulo, :info, :escola_id, :local, :algas, :espuma, :corpos_flutuantes, :materialsedimentavel, :cheiro, :plantas_aquaticas, :peixes_animais, :condicoes_climaticas, :classe_coname, :temperatura_ambiente, :ph, :oxigenio_dissolvido, :amonia, :ferro, :fosfato, :cloro, :turbidez, :cloretos, :dureza, :dqo_campo, :coliformes, :dbo, :detergentes, :pessoa_id, :hora_coleta
+	validates_presence_of :local, :hora_coleta, :escola, :pessoa
 
 	def to_param
-	[id, nome.parameterize].join("-")
+		[id, local.parameterize].join("-")
 	end
 end

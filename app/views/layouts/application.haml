@@ -10,16 +10,17 @@
     
     %body
       #meio      
-        #topo                    
-          = render :partial => "pages/menu"
-          .logo= image_tag "logo.png"          
-        #todo
-          = yield
+        .logo= image_tag "logo.png"
+        #menu= render :partial => "pages/menu"        
+        #todo= yield
 
-      %footer
+      %footer        
         .rj= image_tag 'logo_governo_rj.jpg'
-        %p{:style=>"float:left; margin-left: 2px"} Agenda Água na Escola - ASSEAGUA / SEE / SEA - RJ 
-        %p.contato 
+        %span{:style=>"float:left; margin: 2px"}          
+          Agenda Água na Escola - ASSEAGUA / SEE / SEA - RJ
+        .contato
+          %span.extrapolo ExtraPolo! Labs
+          %span{:style=>"margin: 0px 6px 0px 6px"}= '|'
+          %i.icon-envelope
           %a{:href=>"/sobre"}
-            %i.icon-envelope
-              Contato
+            Contato

@@ -37,7 +37,7 @@ class ColetasController < ApplicationController
   # POST /coleta
   # POST /coleta.json
   def create
-    @coleta = Coleta.new(params[:coletum])
+    @coleta = Coleta.new(params[:coleta])
 
     respond_to do |format|
       if @coleta.save

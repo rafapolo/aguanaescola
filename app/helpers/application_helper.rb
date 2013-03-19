@@ -15,5 +15,12 @@ module ApplicationHelper
 		date.strftime("%d-%m-%Y")
 	end
 
+	def format_datetime dt
+		dt.strftime("%H:%M %d/%m/%Y")
+	end
+
+	def b boolean
+		boolean ? "Sim" : "Não"
+	end
 
 end

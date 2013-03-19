@@ -1,25 +1,178 @@
-= form_for @coleta, :html => { :class => 'form-horizontal' } do |f|
+- unless @coleta.errors.empty?
+  .alert.alert-error
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    - @coleta.errors.full_messages.each do |msg|
+      %li= msg
+
+= form_for @coleta, :html => { :class => 'form-horizontal form-inline' } do |f|
 
   .control-group
     = f.label :local, :class => 'control-label'
     .controls
-      = f.text_area :local, :class => 'text_field'
+      = f.text_field :local, :class => 'text_field'
 
   .control-group
-    = f.label :local, :class => 'control-label'
+    = f.label "Hora da Coleta", :class => 'control-label'
     .controls
-      = f.number_field :local, :class => 'number_field'
+      - now = Time.now.strftime("%d/%m/%Y %H:%M")
+      #coleta_datepicker.input-append.date        
+        %input{"data-format" => "dd/MM/yyyy hh:mm", :type => "text", :name=>"coleta[hora_coleta]", :value=>now}/
+        %span.add-on
+          %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+        :javascript
+          $(document).ready(
+            function(){ $('#coleta_datepicker').datetimepicker({language: 'pt-BR'})}
+          );
+
+  %hr
+  // boleanos
+  .control-group{:style=>"font-size: 14px; padding-left: 180px"}
+    .checkbox 
+      Algas
+      = f.check_box :algas    
+    .checkbox
+      Espuma
+      = f.check_box :espuma
+    .checkbox
+      Corpos Flutuantes
+      = f.check_box :corpos_flutuantes
+    .checkbox
+      Material Sedimentável
+      = f.check_box :materialsedimentavel
+    .checkbox
+      Cheiro
+      = f.check_box :cheiro
+    .checkbox
+      Plantas Aquáticas
+      = f.check_box :plantas_aquaticas
+    .checkbox
+      Peixes e outros Animais
+      = f.check_box :peixes_animais
+    .checkbox
+      Cobertura Vegetal
+      = f.check_box :algas      
+  %hr
 
   .control-group
-    = f.label :algas, :class => 'control-label'
+    = f.label "Condições Climáticas", :class => 'control-label'
     .controls
-      = f.check_box :algas, :class => 'checkbox'
+      = f.text_field :condicoes_climaticas, :class => 'text_field'
 
   .control-group
-    = f.label :info, :class => 'control-label'
+    = f.label "Classe Coname", :class => 'control-label'
+    .controls
+      = f.text_field :classe_coname, :class => 'text_field'      
+
+  // floats
+
+  .control-group
+    = f.label "Temperatura Água", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :condicoes_climaticas, :value=>"0", :step=>'0.1', :class => 'number_field'
+        %span.add-on C°
+
+  .control-group
+    = f.label "Temperatura Ambiente", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :temperatura_ambiente, :value=>"0", :step=>'0.1', :class => 'number_field'
+        %span.add-on C°
+
+  .control-group
+    = f.label "pH", :class => 'control-label'
+    .controls
+      = f.number_field :ph, :value=>"0", :step=>'0.1', :class => 'number_field'
+  
+  .control-group
+    = f.label "Oxigênio dissolvido", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :oxigenio_dissolvido, :value=>"0", :step=>'0.1', :class => 'number_field'
+        %span.add-on mg/L O2
+
+  .control-group
+    = f.label "Amônia", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :amonia, :value=>"0", :step=>'0.1', :class => 'number_field'
+        %span.add-on mg/L N-NH4
+  
+  .control-group
+    = f.label "Ferro", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :ferro, :value=>"0", :step=>'0.1', :class => 'number_field'
+        %span.add-on mg/L Fe2
+
+  .control-group
+    = f.label "Fosfato", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :fosfato, :value=>"0", :step=>'0.1', :class => 'number_field'
+        %span.add-on mg/L PO4
+
+  .control-group
+    = f.label "Cloro", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :cloro, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        %span.add-on mg/L Cl2
+  .control-group
+    = f.label "Turbidez", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :turbidez, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        %span.add-on NTU
+      
+  .control-group
+    = f.label "Cloretos", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :cloretos, :value=>"0", :step=>'0.1', :class => 'number_field'            
+        %span.add-on mg/L Cl
+
+  .control-group
+    = f.label "Dureza", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :dureza, :value=>"0", :step=>'0.1', :class => 'number_field'            
+        %span.add-on mg/L CaCO3
+      
+  .control-group
+    = f.label "DQO de Campo", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :dqo_campo, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        %span.add-on mg/L O2
+      
+  .control-group
+    = f.label "Ecolli e Coliformes", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :coliformes, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        %span.add-on UfC/100 ml
+      
+  .control-group
+    = f.label "DBO a temperatura ambiente", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :dbo, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        %span.add-on mg/L O2
+      
+  .control-group
+    = f.label "Detergentes", :class => 'control-label'
+    .controls
+      .input-append
+        = f.number_field :detergentes, :value=>"0", :step=>'0.1', :class => 'number_field'     
+        %span.add-on mg/L LAS
+
+  .control-group
+    = f.label "Observações", :class => 'control-label'
     .controls
       = f.text_area :info, :class => 'text_area'
 
   .form-actions
+    = f.hidden_field :pessoa_id, :value => current_user.id
     = f.hidden_field :escola_id, :value => current_user.escola.id
-    = f.submit "Salvar", :class => 'btn btn-primary'    
+    = f.submit "Salvar", :class => 'btn btn-primary'
