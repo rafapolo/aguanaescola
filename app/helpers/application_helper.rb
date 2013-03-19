@@ -21,7 +21,7 @@ module ApplicationHelper
 	end
 
 	def b bool
-		return bool ? "Sim" : "Não"
+		return boolean ? "Sim" : "Não"
 	end
 
 end
