@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
 	def id_url pessoa
 		"/pessoa/#{pessoa.nome}"
