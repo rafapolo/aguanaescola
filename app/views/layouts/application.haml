@@ -10,12 +10,13 @@
     
     %body
       #meio      
-        .logo= image_tag "logo.png"
+        .logo
+          = image_tag "logo.png"
+          #realizacao= image_tag "realizacao.png"
         #menu= render :partial => "pages/menu"        
         #todo= yield
 
       %footer        
-        .rj= image_tag 'logo_governo_rj.jpg'
         %span{:style=>"float:left; margin: 2px"}          
           Agenda Água na Escola - ASSEAGUA / SEE / SEA - RJ
         .contato
