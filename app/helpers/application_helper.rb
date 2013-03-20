@@ -20,7 +20,7 @@ module ApplicationHelper
 		dt.strftime("%H:%M %d/%m/%Y")
 	end
 
-	def b bool
+	def b boolean
 		return boolean ? "Sim" : "Não"
 	end
 
