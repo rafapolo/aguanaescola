@@ -15,10 +15,11 @@ task :deploy do
   deploy do
     invoke :'git:clone'
     queue 'bundle install'
+    invoke :'restart'
   end
 end
 
 task :restart do
-  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 db/prod.sqlite3"
-  queue 'touch tmp/restart.txt'
+  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 #{deploy_to}/current/db/prod.sqlite3"
+  queue 'touch #{deploy_to}/current/tmp/restart.txt'
 end
