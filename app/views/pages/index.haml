@@ -1,12 +1,14 @@
-#myCarousel.carousel.slide
+#slides.carousel.slide
   %ol.carousel-indicators
-    %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-    %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
-    %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+    %li.active{"data-slide-to" => "0", "data-target" => "#slides"}
+    %li{"data-slide-to" => "1", "data-target" => "#slides"}
+    %li{"data-slide-to" => "2", "data-target" => "#slides"}
+    %li{"data-slide-to" => "3", "data-target" => "#slides"}
+    %li{"data-slide-to" => "4", "data-target" => "#slides"}
+    %li{"data-slide-to" => "5", "data-target" => "#slides"}
   .carousel-inner
     .item.active
-      = image_tag "lagoa-rodrigo-de-freitas.jpg"
-
+      = image_tag "fotos/lagoa-rodrigo-de-freitas.jpg"
       #texto
         %br
         %p A Educação Ambiental nas Escolas ocorre mediante a utilização de ferramentas que visam informar e sensibilizar as crianças sobre a questão ambiental com foco na sustentabilidade ambiental, no abastecimento de água e esgotamento sanitário mostrando a importância da melhoria das nossas práticas sobre o meio ambiente e considerando que essas crianças serão excelentes multiplicadores deste conhecimento.
@@ -15,18 +17,22 @@
 
         %p Após a análise realizada pelos kits, os participantes descobrem de imediato o estado em que a aquele corpo d’água se encontra, podendo assim discutir com os Educadores e refletir sobre as ações desejáveis.
 
+        %p André / Gerência de Qualidade de Água - DIGAT/INEA
+
       .carousel-caption
         %h4 21 Março 2013 - Educação Ambiental – Lagoa Rodrigo de Freitas
-        %p André / Gerência de Qualidade de Água / DIGAT / INEA
     .item
-      %img{:alt => "", :src => "assets/2.jpg"}/
+      = image_tag "fotos/3.jpg"
       .carousel-caption
-        %h4 18 dez 2012 - Colégio Anchieta - Nova Fribugo / RJ
-        %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.
+        %h4 Prêmio Ana 2012 - Programa Agenda Água
+        %p Agenda Água na Escola selecionado entre as seis melhores práticas do Brasil na categoria Governança das Águas.
+
     .item
-      %img{:alt => "", :src => "assets/3.jpg"}/
-      .carousel-caption
-        %h4 15 dez 2012 - Coleta em Itaperuna
-        %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.
-  %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
-  %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
+      = image_tag "fotos/5.jpg"
+    .item
+      = image_tag "fotos/6.jpg"
+    .item
+      = image_tag "fotos/7.jpg"
+
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#slides"} ‹
+  %a.right.carousel-control{"data-slide" => "next", :href => "#slides"} ›

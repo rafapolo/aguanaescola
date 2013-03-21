@@ -32,8 +32,8 @@
                   %i.icon-list
                   = "#{c.local} - #{c.escola.nome}"
     %ul.nav.pull-right
-      %form.navbar-search
-        %input.search-query{:placeholder => "Pesquisar", :type => "text", :style=>"width: 180px"}
+      %form.navbar-search{:action=>"/busca"}
+        %input.search-query{:placeholder => "Pesquisar", :name=>"q", :type => "text", :style=>"width: 180px"}
         %input#search-submit{:type => "submit", :value => "Search"}
       - unless current_user
         %li.divider-vertical        

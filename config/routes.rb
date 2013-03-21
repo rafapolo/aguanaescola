@@ -13,6 +13,7 @@ Aguanaescola::Application.routes.draw do
   match '/logout' => 'pages#logout'
   match '/auth' => 'pages#auth'
   match '/admin' => 'admin#index'
+  match '/busca' => 'pages#busca'
 
   root :to => 'pages#index'
 end
