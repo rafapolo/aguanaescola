@@ -66,105 +66,105 @@
   // floats
 
   .control-group
-    = f.label "Temperatura Água", :class => 'control-label'
+    = f.label "Temperatura Água", :value=>"0", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :condicoes_climaticas, :value=>"0", :step=>'0.1', :class => 'number_field'
+        = f.number_field :condicoes_climaticas, :value=>"0", :step=>'0.01', :class => 'number_field'
         %span.add-on C°
 
   .control-group
     = f.label "Temperatura Ambiente", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :temperatura_ambiente, :value=>"0", :step=>'0.1', :class => 'number_field'
+        = f.number_field :temperatura_ambiente, :value=>"0", :step=>'0.01', :class => 'number_field'
         %span.add-on C°
 
   .control-group
     = f.label "pH", :class => 'control-label'
     .controls
-      = f.number_field :ph, :value=>"0", :step=>'0.1', :class => 'number_field'
+      = f.number_field :ph, :value=>"0", :step=>'0.01', :class => 'number_field'
   
   .control-group
     = f.label "Oxigênio dissolvido", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :oxigenio_dissolvido, :value=>"0", :step=>'0.1', :class => 'number_field'
+        = f.number_field :oxigenio_dissolvido, :value=>"0", :step=>'0.01', :class => 'number_field'
         %span.add-on mg/L O2
 
   .control-group
     = f.label "Amônia", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :amonia, :value=>"0", :step=>'0.1', :class => 'number_field'
+        = f.number_field :amonia, :value=>"0", :step=>'0.01', :class => 'number_field'
         %span.add-on mg/L N-NH4
   
   .control-group
     = f.label "Ferro", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :ferro, :value=>"0", :step=>'0.1', :class => 'number_field'
+        = f.number_field :ferro, :value=>"0", :step=>'0.01', :class => 'number_field'
         %span.add-on mg/L Fe2
 
   .control-group
     = f.label "Fosfato", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :fosfato, :value=>"0", :step=>'0.1', :class => 'number_field'
+        = f.number_field :fosfato, :value=>"0", :step=>'0.01', :class => 'number_field'
         %span.add-on mg/L PO4
 
   .control-group
     = f.label "Cloro", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :cloro, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        = f.number_field :cloro, :value=>"0", :step=>'0.01', :class => 'number_field'      
         %span.add-on mg/L Cl2
   .control-group
     = f.label "Turbidez", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :turbidez, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        = f.number_field :turbidez, :value=>"0", :step=>'0.01', :class => 'number_field'      
         %span.add-on NTU
       
   .control-group
     = f.label "Cloretos", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :cloretos, :value=>"0", :step=>'0.1', :class => 'number_field'            
+        = f.number_field :cloretos, :value=>"0", :step=>'0.01', :class => 'number_field'            
         %span.add-on mg/L Cl
 
   .control-group
     = f.label "Dureza", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :dureza, :value=>"0", :step=>'0.1', :class => 'number_field'            
+        = f.number_field :dureza, :value=>"0", :step=>'0.01', :class => 'number_field'            
         %span.add-on mg/L CaCO3
       
   .control-group
     = f.label "DQO de Campo", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :dqo_campo, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        = f.number_field :dqo_campo, :value=>"0", :step=>'0.01', :class => 'number_field'      
         %span.add-on mg/L O2
       
   .control-group
     = f.label "Ecolli e Coliformes", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :coliformes, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        = f.number_field :coliformes, :value=>"0", :step=>'0.01', :class => 'number_field'      
         %span.add-on UfC/100 ml
       
   .control-group
     = f.label "DBO a temperatura ambiente", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :dbo, :value=>"0", :step=>'0.1', :class => 'number_field'      
+        = f.number_field :dbo, :value=>"0", :step=>'0.01', :class => 'number_field'      
         %span.add-on mg/L O2
       
   .control-group
     = f.label "Detergentes", :class => 'control-label'
     .controls
       .input-append
-        = f.number_field :detergentes, :value=>"0", :step=>'0.1', :class => 'number_field'     
+        = f.number_field :detergentes, :value=>"0", :step=>'0.01', :class => 'number_field'     
         %span.add-on mg/L LAS
 
   .control-group

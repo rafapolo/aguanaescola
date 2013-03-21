@@ -19,49 +19,49 @@
   %tbody        
     %tr
       %td Temperatura da Água
-      %td= @coleta.temperatura_agua
+      %td= "#{@coleta.temperatura_agua} C°"
     %tr
       %td Temperatura do Ambiente
-      %td= @coleta.temperatura_ambiente
+      %td= "#{@coleta.temperatura_ambiente} C°"
     %tr
       %td Oxigênio dissolvido
-      %td= @coleta.oxigenio_dissolvido
+      %td= "#{@coleta.oxigenio_dissolvido} mg/L O2"
     %tr
       %td pH
-      %td= @coleta.ph
+      %td= "#{@coleta.ph}"
     %tr
       %td Amônia
-      %td= @coleta.amonia
+      %td= "#{@coleta.amonia} mg/L N-NH4"
     %tr
       %td Ferro
-      %td= @coleta.ferro
+      %td= "#{@coleta.ferro} mg/L Fe2"
     %tr
       %td Dureza
-      %td= @coleta.dureza
+      %td= "#{@coleta.dureza} mg/L CaCO3"
     %tr
       %td Fosfato
-      %td= @coleta.fosfato
+      %td= "#{@coleta.fosfato} mg/L PO4"
     %tr
       %td Cloro
-      %td= @coleta.cloro
+      %td= "#{@coleta.cloro} mg/L Cl2"
     %tr
       %td Turbidez
-      %td= @coleta.turbidez
+      %td= "#{@coleta.turbidez} NTU"
     %tr
       %td Cloretos
-      %td= @coleta.cloretos
+      %td= "#{@coleta.cloretos} mg/L Cl"
     %tr
       %td QDO de Campo
-      %td= @coleta.dqo_campo
+      %td= "#{@coleta.dqo_campo} mg/L O2"
     %tr
       %td Coliformes
-      %td= @coleta.coliformes
+      %td= "#{@coleta.coliformes} UfC/100 ml"
     %tr
       %td DBO
-      %td= @coleta.dbo
+      %td= "#{@coleta.dbo} mg/L O2"
     %tr
       %td Detergentes
-      %td= @coleta.detergentes    
+      %td= "#{@coleta.detergentes} mg/L LAS"    
 
 %table.table.table-striped{:style=>"float: right; width: 300px"}
   %thead
