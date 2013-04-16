@@ -1,0 +1,6 @@
+%h2= Notícias
+
+%ul
+	- unless @noticia.empty?
+		- @noticia.each do |p|
+			%li= link_to p

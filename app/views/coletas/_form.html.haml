@@ -66,7 +66,7 @@
   // floats
 
   .control-group
-    = f.label "Temperatura Água", :class => 'control-label'
+    = f.label "Temperatura Água", :value=>"0", :class => 'control-label'
     .controls
       .input-append
         = f.number_field :condicoes_climaticas, :step=>'0.1', :class => 'number_field'

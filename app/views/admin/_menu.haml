@@ -5,6 +5,10 @@
 %ul.nav.nav-tabs
 	- if current_user.is_admin?
 		%li
+			%a{:href => "/admin/noticia"} 
+				%i.icon-comments
+				Notícias
+		%li
 			%a{:href => "/admin/monitores"} 
 				%i.icon-user
 				= "Monitores (#{@monitores_count})"

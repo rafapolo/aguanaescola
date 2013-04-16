@@ -11,16 +11,26 @@
     %body
       #meio      
         .logo= image_tag "logo.png"
-        %iframe#f370085a8c.fb_ltr{:name => "f306003c4", :scrolling => "no", :src => "http://www.facebook.com/plugins/like.php?api_key=380422978692298&locale=pt_BR&sdk=joey&channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D21%23cb%3Dfc86c8764%26origin%3Dhttp%253A%252F%252Flocalhost%253A3000%252Ff1439968c4%26domain%3Dlocalhost%26relation%3Dparent.parent&href=http%3A%2F%2Fagendaaguanaescola.eco.br&node_type=link&width=450&layout=box_count&colorscheme=light&show_faces=false&send=true&extended_social_context=false", :style => "border: none; overflow: hidden; height: 86px; width: 59px;", :title => "Curta Agenda Água no Facebook."}
+        #fb-root
+        .fb-like{"data-href" => "http://agendaaguanaescola.eco.br", "data-layout" => "box_count", "data-send" => "true", "data-show-faces" => "false", :style=>"position: absolute"}
         #menu= render :partial => "pages/menu"       
         #todo= yield
         #menu= render :partial => "pages/logos"
       %footer        
         %span{:style=>"float:left; margin: 2px"}          
-          Agenda Água na Escola - INEA/RJ
+          Agenda Água na Escola - SEA/INEA/RJ
         .contato
-          %span.extrapolo ExtraPolo Labs
+          %span.extrapolo ExtraPolo Softwares Culturais
           %span{:style=>"margin: 0px 6px 0px 6px"}= '|'
           %i.icon-envelope
           %a{:href=>"/sobre"}
             Contato
+
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=380422978692298";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));

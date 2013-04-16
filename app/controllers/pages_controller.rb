@@ -15,6 +15,10 @@ class PagesController < ApplicationController
 		end
 	end
 
+	def busca
+		@busca = params[:q]
+	end
+
 	def logout
 		session[:auth] = false
 		redirect_to "/"

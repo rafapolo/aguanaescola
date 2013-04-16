@@ -10,8 +10,34 @@
     .controls
       = f.text_field :nome, :class => 'text_field'
   .control-group
-    = f.label :municipio, :class => 'control-label'
+    = f.label "Município", :class => 'control-label'
     .controls
       = f.text_field :municipio, :class => 'text_field'
+
+
+  .control-group
+    = f.label "Techo do Rio", :class => 'control-label'
+    .controls
+      = f.text_field :trecho_rio, :class => 'text_field'
+
+  .control-group
+    = f.label "Região Hidrográfica", :class => 'control-label'
+    .controls
+      = f.text_field :regiao_hidrografica, :class => 'text_field'
+
+  .control-group
+    = f.label "Comitê da Bacia", :class => 'control-label'
+    .controls
+      = f.text_field :comite_bacia, :class => 'text_field'
+
+  .control-group
+    = f.label "Latitude", :class => 'control-label'
+    .controls
+      = f.text_field :lat, :class => 'text_field'
+  .control-group
+    = f.label "Longitude", :class => 'control-label'
+    .controls
+      = f.text_field :long, :class => 'text_field'
+
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'

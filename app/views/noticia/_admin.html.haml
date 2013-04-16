@@ -1,0 +1,22 @@
+- unless @noticia.empty?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th
+        %th Título
+        %th Data
+        %th
+    %tbody
+      - @noticia.each do |p|
+        %tr
+          %td= link_to p.title, p        
+          %td= format p.created_at          
+          %td
+            %a{:href=>edit_noticium_path(p), :class => 'btn btn-mini btn-primary'} 
+              %i.icon-edit
+              Editar
+
+            = link_to '<i class="icon-trash"></i>'.html_safe, noticium_path(p), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Quer mesmo excluir a Notícia e todos seus dados?')) }, :class => 'btn btn-danger'
+    %br
+ 
+= link_to 'Novo', new_noticium_path, :class => 'btn btn-primary'

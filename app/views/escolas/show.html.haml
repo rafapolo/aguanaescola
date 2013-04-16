@@ -2,6 +2,11 @@
 	%i.icon-book
 	= @escola.nome
 .subtitle= @escola.municipio
+%hr
 
 - @escola.coletas.each do |c|
-	= link_to c
+	#div
+		%i.icon-list
+		- path = coleta_path c
+		= format c.hora_coleta
+		%a{:href=>path}= c.local

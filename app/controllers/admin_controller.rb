@@ -16,6 +16,10 @@ class AdminController < ApplicationController
   	@escolas = Escola.all
   end
 
+  def noticia
+    @noticia = Noticium.all
+  end
+
   def monitores
   	@monitores = Pessoa.monitores
   end

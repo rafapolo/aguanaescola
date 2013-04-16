@@ -5,6 +5,11 @@
         %a{:href => "/"} 
           %i.icon-home
           Início
+      %li
+        %a{:href => "/posts"} 
+          %i.icon-comment
+          Notícias
+      %li.divider-vertical  
       %ul.nav
         // escolas
         %li.dropdown
@@ -34,7 +39,7 @@
     %ul.nav.pull-right  
       %li
         %a{:href => "/sobre"} 
-          %i.icon-question-sign
+          %i.icon-tint
           Sobre o Agenda Água        
       %li.divider-vertical              
         - if current_user

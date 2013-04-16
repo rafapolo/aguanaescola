@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416113157) do
+ActiveRecord::Schema.define(:version => 20130416125102) do
 
   create_table "coletas", :force => true do |t|
     t.integer  "pessoa_id"
@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(:version => 20130416113157) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "noticia", :force => true do |t|
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+    t.string   "titulo"
+    t.text     "texto"
+    t.string   "urlized"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "pessoas", :force => true do |t|
     t.string   "nome"
     t.string   "senha"
@@ -87,5 +99,17 @@ ActiveRecord::Schema.define(:version => 20130416113157) do
   end
 
   add_index "pessoas", ["escola_id"], :name => "index_pessoas_on_escola_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+    t.string   "titulo"
+    t.string   "urlized"
+    t.text     "texto"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
 end

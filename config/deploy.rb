@@ -15,6 +15,7 @@ end
 task :deploy do
   deploy do
     invoke :'git:clone'
+    queue 'rake db:migrate' 
     queue 'bundle install'    
 
 	to :launch do
