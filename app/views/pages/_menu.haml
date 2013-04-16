@@ -4,7 +4,7 @@
       %li
         %a{:href => "/"} 
           %i.icon-home
-          Novidades
+          Início
       %ul.nav
         // escolas
         %li.dropdown
@@ -31,16 +31,11 @@
                 %a{:href => "#{url_for c}"} 
                   %i.icon-list
                   = "#{c.local} - #{c.escola.nome}"
-    %ul.nav.pull-right
-      %form.navbar-search
-        %input.search-query{:placeholder => "Pesquisar", :type => "text", :style=>"width: 180px"}
-        %input#search-submit{:type => "submit", :value => "Search"}
-      - unless current_user
-        %li.divider-vertical        
-        %li
-          %a{:href => "/sobre"} 
-            %i.icon-question-sign
-            Sobre        
+    %ul.nav.pull-right  
+      %li
+        %a{:href => "/sobre"} 
+          %i.icon-question-sign
+          Sobre o Agenda Água        
       %li.divider-vertical              
         - if current_user
           %li.dropdown

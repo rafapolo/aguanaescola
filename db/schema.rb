@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317155323) do
+ActiveRecord::Schema.define(:version => 20130416113157) do
 
   create_table "coletas", :force => true do |t|
     t.integer  "pessoa_id"
@@ -53,8 +53,13 @@ ActiveRecord::Schema.define(:version => 20130317155323) do
   create_table "escolas", :force => true do |t|
     t.string   "nome"
     t.string   "municipio"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "trecho_rio"
+    t.string   "regiao_hidrografica"
+    t.string   "comite_bacia"
+    t.string   "lat"
+    t.string   "long"
   end
 
   create_table "midia", :force => true do |t|
