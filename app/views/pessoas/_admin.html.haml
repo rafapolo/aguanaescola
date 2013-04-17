@@ -13,7 +13,7 @@
         %tr
           %td= link_to m.nome, m
           %td= m.email          
-          %td= "#{m.escola.nome} #{m.escola.municipio}"
+          %td= m.escola ? "#{m.escola.nome} #{m.escola.municipio}" : '-'
           %td= m.senha
           %td= format m.created_at          
           %td
