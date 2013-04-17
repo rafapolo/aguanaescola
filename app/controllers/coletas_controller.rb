@@ -51,10 +51,10 @@ class ColetasController < ApplicationController
   # PUT /coleta/1
   # PUT /coleta/1.json
   def update
+    
     @coleta = Coleta.find(params[:id])
-
     respond_to do |format|
-      if @coleta.update_attributes(params[:coletum])
+      if @coleta.update_attributes(params[:coleta])
         format.html { redirect_to @coleta, notice: 'Coletum was successfully updated.' }
       else
         format.html { render action: "edit" }

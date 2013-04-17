@@ -16,7 +16,6 @@ task :deploy do
     queue 'rake db:migrate RAILS_ENV="production"' 
     queue 'bundle install' 
 
-
 	to :launch do
 	  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 #{app}/db/prod.sqlite3"
 	  queue "ln -nfs #{deploy_to}/shared/log/production.log #{app}/log/production.log"
