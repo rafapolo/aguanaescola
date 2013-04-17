@@ -29,17 +29,14 @@ task :deploy do
   end
 end
 
-desc 'Starts the application'
 task :start => :environment do
   queue "cd #{app}; sudo bundle exec rackup -s puma -p 80 -P #{pid_file} -E production -D"
 end
  
-desc 'Stops the application'
 task :stop => :environment do
   queue %[sudo kill -9 `cat #{pid_file}`]
 end
  
-desc 'Restarts the application'
 task :restart => :environment do
   invoke :stop
   invoke :start
