@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.11' #framework
 gem 'sqlite3' 	# db
+gem 'puma' #server
 
 gem "jquery-rails"
 gem "jquery-ui-rails"
@@ -17,7 +18,6 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 
 group :development do
-	gem 'puma'
 	gem 'pry'
 	gem 'pry-debugger'	
 	gem 'mina'
