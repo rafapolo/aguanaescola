@@ -7,7 +7,6 @@ gem 'puma' #server
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "paperclip"
-gem 'rails-erd'
 
 # assets
 gem 'sass-rails'
@@ -22,4 +21,5 @@ group :development do
 	gem 'pry'
 	gem 'pry-debugger'	
 	gem 'mina'
+	gem 'rails-erd'
 end
