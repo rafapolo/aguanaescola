@@ -7,6 +7,7 @@ gem 'puma' #server
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "paperclip"
+gem 'rails-erd'
 
 # assets
 gem 'sass-rails'
