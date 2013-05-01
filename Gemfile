@@ -7,6 +7,7 @@ gem 'puma' #server
 gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "paperclip"
+gem 'string-urlize'
 
 # assets
 gem 'sass-rails'
@@ -16,6 +17,7 @@ gem 'uglifier'
 gem 'therubyracer'
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'bootstrap-wysihtml5-rails'
 
 group :development do
 	gem 'pry'
