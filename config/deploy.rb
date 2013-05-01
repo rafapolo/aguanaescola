@@ -14,7 +14,7 @@ task :deploy do
     invoke :'git:clone'
     invoke :'rails:assets_precompile'  
     queue 'ruby --version' 
-    #queue 'rake db:migrate RAILS_ENV="production"' 
+    queue 'rake db:migrate RAILS_ENV="production"' 
     queue 'sudo bundle install' 
 
   	to :launch do

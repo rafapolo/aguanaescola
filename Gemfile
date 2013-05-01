@@ -17,7 +17,7 @@ gem 'uglifier'
 gem 'therubyracer'
 gem "less-rails"
 gem "twitter-bootstrap-rails"
-gem 'bootstrap-wysihtml5-rails'
+gem 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
 
 group :development do
 	gem 'pry'
