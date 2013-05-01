@@ -1,39 +1,27 @@
 #slides.carousel.slide
   %ol.carousel-indicators
-    %li.active{"data-slide-to" => "0", "data-target" => "#slides"}
-    %li{"data-slide-to" => "1", "data-target" => "#slides"}
-    %li{"data-slide-to" => "2", "data-target" => "#slides"}
-    %li{"data-slide-to" => "3", "data-target" => "#slides"}
-    %li{"data-slide-to" => "4", "data-target" => "#slides"}
-    %li{"data-slide-to" => "5", "data-target" => "#slides"}
+    - i = 0
+    - @noticias.each do |n|
+      - if i == 0
+        %li.active{"data-slide-to" => i, "data-target" => "#slides"}
+      - else
+        %li{"data-slide-to" => i, "data-target" => "#slides"}
+      - i=+1
   .carousel-inner
-    .item.active
-      = image_tag "fotos/lagoa-rodrigo-de-freitas.jpg"
-      #texto
-        %br
-        %p A Educação Ambiental nas Escolas ocorre mediante a utilização de ferramentas que visam informar e sensibilizar as crianças sobre a questão ambiental com foco na sustentabilidade ambiental, no abastecimento de água e esgotamento sanitário mostrando a importância da melhoria das nossas práticas sobre o meio ambiente e considerando que essas crianças serão excelentes multiplicadores deste conhecimento.
-
-        %p Uma das ferramentas utilizadas para o desenvolvimento do conhecimento se dá por meio da utilização de Kits de análise. Estes kits são desenvolvidos para controle de qualidade da água, para ser utilizado, especialmente, por alunos a partir da quinta série ou comunidades em geral. As análises realizadas por estes kits (pH, fósforo total, nitrogênio amoniacal, cor, turbidez, Cloro livre, ferro, ortofosfato, nitrogênio amoniacal, cloreto, dureza total, oxigênio dissolvido, temperatura), demonstram a realidade do corpo d’água, e quais os caminhos deverão ser seguidos, visando a sua recuperação. Vale destacar que estes kits devem ser utilizados com o propósito de orientar e indicar para os seus usuários a presença/ausência de poluentes no corpo d’água, não podendo ser utilizados como punitivos. Esta restrição se dá pelo fato destes kits serem semi-quantitativos, ou seja, informam faixa de valores pré-determinadas. Para uma ação efetiva, com propósitos de fiscalização, deve-se recorrer a análises realizadas por laboratórios credenciados.
-
-        %p Após a análise realizada pelos kits, os participantes descobrem de imediato o estado em que a aquele corpo d’água se encontra, podendo assim discutir com os Educadores e refletir sobre as ações desejáveis.
-        
-        %br
-
-      .carousel-caption
-        %h4 21 de março - Educação Ambiental para Gestão de Recursos Hídricos
-        %p André / Gerência de Qualidade de Água / DIGAT/INEA
-    .item
-      = image_tag "fotos/3.jpg"
-      .carousel-caption
-        %h4 Prêmio Ana 2012 - Programa Agenda Água
-        %p Agenda Água na Escola selecionado entre as seis melhores práticas do Brasil na categoria Governança das Águas.
-
-    .item
-      = image_tag "fotos/5.jpg"
-    .item
-      = image_tag "fotos/6.jpg"
-    .item
-      = image_tag "fotos/7.jpg"
+    - i = 0
+    - @noticias.each do |n|
+      - c = i==0 ? 'active' : '' 
+      - i=+1
+      .item{:class=>c}
+        %h4
+          %i.icon-comments
+          = n.titulo
+        %p
+          %i.icon-time
+          = format n.created_at
+        %p.center
+          = image_tag n.imagem :thumb if n.imagem.path
+        = n.texto.html_safe
 
   %a.left.carousel-control{"data-slide" => "prev", :href => "#slides"} ‹
   %a.right.carousel-control{"data-slide" => "next", :href => "#slides"} ›

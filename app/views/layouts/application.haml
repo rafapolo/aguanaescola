@@ -13,18 +13,18 @@
         .logo= image_tag "logo.png"
         #fb-root
         .fb-like{"data-href" => "http://agendaaguanaescola.eco.br", "data-layout" => "box_count", "data-send" => "true", "data-show-faces" => "false", :style=>"position: absolute"}
+        .contato
+          %i.icon-envelope
+            %a{:href=>"mailto:agenda.agua@gmail.com"}
+              contato
         #menu= render :partial => "pages/menu"       
         #todo= yield
         #menu= render :partial => "pages/logos"
+      
       %footer        
-        %span{:style=>"float:left; margin: 2px"}          
-          Agenda Água na Escola - SEA/INEA/RJ
-        .contato
-          %span.extrapolo ExtraPolo Softwares Culturais
-          %span{:style=>"margin: 0px 6px 0px 6px"}= '|'
-          %i.icon-envelope
-          %a{:href=>"/sobre"}
-            Contato
+        %span{:style=>"margin-top:3px"}
+          %a{:target=>"_blank", :href=>"http://www.inea.rj.gov.br/index/index.asp", :class=>"inea"}© Agenda Água na Escola - SEA/INEA/RJ
+        %a{:target=>"_blank", :href=>"http://extrapolo.com", :class=>"extrapolo"}ExtraPolo Softwares Culturais
 
 :javascript
   (function(d, s, id) {
@@ -34,3 +34,12 @@
     js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=380422978692298";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3761913-24']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();

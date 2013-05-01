@@ -1,12 +1,25 @@
-.title
-	%i.icon-book
-	= @escola.nome
-.subtitle= @escola.municipio
-%hr
+#grande
+	.title
+		%i.icon-book
+		= @escola.nome
+	.subtitle
+		%i.icon-globe
+		= "#{@escola.cidade.nome} · #{@escola.trecho_rio} · #{@escola.regiao_hidrografica} ·" 
+		- if !@escola.comite_bacia_url.empty?
+			%span= link_to @escola.comite_bacia, @escola.comite_bacia_url, :target=>"_blank"
+		- else
+			%span= @escola.comite_bacia
+	%hr
 
-- @escola.coletas.each do |c|
-	#div
-		%i.icon-list
-		- path = coleta_path c
-		= format c.hora_coleta
-		%a{:href=>path}= c.local
+	- if @escola.coletas.count>0
+		%h4 
+			%i.icon-list 
+			Coletas
+		- @escola.coletas.each do |c|
+			#div{:style=>"padding-left:20px"}
+				%i.icon-time
+				= format c.hora_coleta
+				%a{:href=>coleta_path(c)}= c.local
+	- else 
+		%i.icon-list 
+		Sem coletas

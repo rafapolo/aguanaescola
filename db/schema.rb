@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416125102) do
+ActiveRecord::Schema.define(:version => 20130501213116) do
+
+  create_table "cidades", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "coletas", :force => true do |t|
     t.integer  "pessoa_id"
@@ -46,13 +52,14 @@ ActiveRecord::Schema.define(:version => 20130416125102) do
     t.text     "info"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.text     "participantes"
+    t.string   "responsavel"
   end
 
   add_index "coletas", ["escola_id"], :name => "index_coletas_on_escola_id"
 
   create_table "escolas", :force => true do |t|
     t.string   "nome"
-    t.string   "municipio"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "trecho_rio"
@@ -60,6 +67,9 @@ ActiveRecord::Schema.define(:version => 20130416125102) do
     t.string   "comite_bacia"
     t.string   "lat"
     t.string   "long"
+    t.string   "comite_bacia_url"
+    t.text     "info"
+    t.integer  "cidade_id"
   end
 
   create_table "midia", :force => true do |t|
@@ -100,16 +110,7 @@ ActiveRecord::Schema.define(:version => 20130416125102) do
 
   add_index "pessoas", ["escola_id"], :name => "index_pessoas_on_escola_id"
 
-  create_table "posts", :force => true do |t|
-    t.string   "imagem_file_name"
-    t.string   "imagem_content_type"
-    t.integer  "imagem_file_size"
-    t.datetime "imagem_updated_at"
-    t.string   "titulo"
-    t.string   "urlized"
-    t.text     "texto"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
+# Could not dump table "sobres" because of following StandardError
+#   Unknown type 'attachment' for column 'execucao'
 
 end

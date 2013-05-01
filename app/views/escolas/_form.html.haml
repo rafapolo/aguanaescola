@@ -9,11 +9,12 @@
     = f.label :nome, :class => 'control-label'
     .controls
       = f.text_field :nome, :class => 'text_field'
+  
   .control-group
-    = f.label "Município", :class => 'control-label'
+    = f.label "Municípios", :class => 'control-label'
     .controls
-      = f.text_field :municipio, :class => 'text_field'
-
+      - selected = @escola.id && @escola.cidade ? @escola.cidade.id : nil
+      = f.select(:cidade_id, Cidade.all.collect {|p| [ p.nome, p.id ] }, {:include_blank => 'Selecione...', :selected => selected})
 
   .control-group
     = f.label "Techo do Rio", :class => 'control-label'
@@ -29,6 +30,16 @@
     = f.label "Comitê da Bacia", :class => 'control-label'
     .controls
       = f.text_field :comite_bacia, :class => 'text_field'
+
+  .control-group
+    = f.label "Link do Comitê da Bacia", :class => 'control-label'
+    .controls
+      = f.text_field :comite_bacia_url, :class => 'text_field'      
+
+  .control-group
+    = f.label "Observações", :class => 'control-label'
+    .controls
+      = f.text_area :info, :class => 'text_area'      
 
   .control-group
     = f.label "Latitude", :class => 'control-label'

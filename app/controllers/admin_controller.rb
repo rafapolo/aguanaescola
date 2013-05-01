@@ -27,4 +27,8 @@ class AdminController < ApplicationController
   def coletas
   	@coletas = Coleta.all
   end
+
+  def sobre
+    @sobre = Sobre.first
+  end
 end

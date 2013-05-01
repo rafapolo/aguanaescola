@@ -5,7 +5,7 @@
 	%p 
 		%i.icon-briefcase
 		%span.bold Monitor
-		= "#{@pessoa.escola.nome} - #{@pessoa.escola.municipio}" if @pessoa.escola
+		= "#{@pessoa.escola.nome} - #{@pessoa.escola.cidade.nome}" if @pessoa.escola
 %hr
 
 - if @pessoa==current_user

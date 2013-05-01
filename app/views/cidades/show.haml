@@ -1,0 +1,25 @@
+.title
+	%i.icon-globe
+	= "#{@cidade.nome} / RJ"
+
+%hr
+
+#grande
+	- if @cidade.escolas.count>0
+		- @cidade.escolas.each do |e|
+			#div
+				%i.icon-book
+				%a{:href=>escola_path(e)}= e.nome
+				#div{:style=>"padding-left:20px"}
+					- if e.coletas.count>0
+						%i.icon-list
+						Coletas
+						- e.coletas.each do |c|
+							#div{:style=>"padding-left:20px"}
+								%i.icon-time
+								= format c.hora_coleta
+								%a{:href=>coleta_path(c)}= c.local
+					- else
+						#div{:style=>"padding-left:20px"}
+							%i.icon-list
+							Sem coletas

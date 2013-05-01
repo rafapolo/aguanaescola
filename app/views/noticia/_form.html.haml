@@ -1,15 +1,10 @@
-- unless @notica.errors.empty?
+- unless @noticia.errors.empty?
   .alert.alert-error
     %button.close{"data-dismiss" => "alert", :type => "button"} ×
-    - @notica.errors.full_messages.each do |msg|
+    - @noticia.errors.full_messages.each do |msg|
       %li= msg
 
-= form_for @notica, :html => { :class => 'form-horizontal' } do |f|  
-  .control-group
-    = f.label :Imagem, :class => 'control-label'
-    .controls
-      = image_tag @notica.imagem :thumb
-      = f.file_field :imagem, :class => 'text_field'
+= form_for @noticia do |f|  
 
   .control-group
     = f.label :titulo, :class => 'control-label'
@@ -17,9 +12,20 @@
       = f.text_field :titulo, :class => 'text_field'
 
   .control-group
-    = f.label :texto, :class => 'control-label'
+    = f.label :Imagem, :class => 'control-label'
     .controls
-      = f.text_area :texto, :class => 'text_area'
+      = image_tag @noticia.imagem :mini if @noticia.imagem.path
+      = f.file_field :imagem, :class => 'text_field'
+
+  .control-group
+    .controls
+      = f.text_area :texto, :class => 'text_area', :class=>'wysihtml5', :style=>"width: 540px; height: 300px"
   
   .form-actions
     = f.submit "Salvar", :class => 'btn btn-primary'
+
+
+:javascript
+  $(document).ready(function(){
+    $('#noticium_texto').wysihtml5({"image": false});
+  }); 

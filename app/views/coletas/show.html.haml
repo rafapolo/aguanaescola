@@ -1,14 +1,35 @@
 .title
   %i.icon-list
   = @coleta.local
+
 .subtitle
   %i.icon-book
   = @coleta.escola.nome
 
-%p{:stye=>"margin-top:10px"}
-%span.bold{:style=>"font-size: 13px"} Data:
-%span= format_datetime @coleta.hora_coleta
+.subsub
+  %i.icon-globe
+  = "#{@coleta.escola.cidade.nome} · #{@coleta.escola.trecho_rio} · #{@coleta.escola.regiao_hidrografica} ·" 
+  %span= link_to @coleta.escola.comite_bacia, @coleta.escola.comite_bacia_url, :target=>"_blank"
     
+%hr
+
+%p
+  %i.icon-time
+  %span Coleta realizada
+  %span= format_datetime @coleta.hora_coleta
+
+#div
+  %p
+    %b Participantes:
+  = text_format @coleta.participantes
+%br
+
+- if @coleta.responsavel
+  #div
+    %p
+      %b Responsável:
+    = @coleta.responsavel
+
 %hr
 
 %table.table.table-striped{:style=>"float: left; width: 400px"}
@@ -17,79 +38,94 @@
       %th Elemento
       %th Quantidade
   %tbody        
-    %tr
-      %td Temperatura da Água
-      %td= "#{@coleta.temperatura_agua} C°"
-    %tr
-      %td Temperatura do Ambiente
-      %td= "#{@coleta.temperatura_ambiente} C°"
-    %tr
-      %td Oxigênio dissolvido
-      %td= "#{@coleta.oxigenio_dissolvido} mg/L O2"
-    %tr
-      %td pH
-      %td= "#{@coleta.ph}"
-    %tr
-      %td Amônia
-      %td= "#{@coleta.amonia} mg/L N-NH4"
-    %tr
-      %td Ferro
-      %td= "#{@coleta.ferro} mg/L Fe2"
-    %tr
-      %td Dureza
-      %td= "#{@coleta.dureza} mg/L CaCO3"
-    %tr
-      %td Fosfato
-      %td= "#{@coleta.fosfato} mg/L PO4"
-    %tr
-      %td Cloro
-      %td= "#{@coleta.cloro} mg/L Cl2"
-    %tr
-      %td Turbidez
-      %td= "#{@coleta.turbidez} NTU"
-    %tr
-      %td Cloretos
-      %td= "#{@coleta.cloretos} mg/L Cl"
-    %tr
-      %td QDO de Campo
-      %td= "#{@coleta.dqo_campo} mg/L O2"
-    %tr
-      %td Coliformes
-      %td= "#{@coleta.coliformes} UfC/100 ml"
-    %tr
-      %td DBO
-      %td= "#{@coleta.dbo} mg/L O2"
-    %tr
-      %td Detergentes
-      %td= "#{@coleta.detergentes} mg/L LAS"    
+    - if @coleta.temperatura_agua
+      %tr
+        %td Temperatura da Água
+        %td= "#{@coleta.temperatura_agua} C°"
+    - if @coleta.temperatura_ambiente
+      %tr
+        %td Temperatura do Ambiente
+        %td= "#{@coleta.temperatura_ambiente} C°"
+    - if @coleta.oxigenio_dissolvido
+      %tr
+        %td Oxigênio dissolvido
+        %td= "#{@coleta.oxigenio_dissolvido} mg/L O2"
+    - if @coleta.ph
+      %tr
+        %td pH
+        %td= "#{@coleta.ph}"
+    - if @coleta.amonia
+      %tr
+        %td Amônia
+        %td= "#{@coleta.amonia} mg/L N-NH4"
+    - if @coleta.ferro
+      %tr
+        %td Ferro
+        %td= "#{@coleta.ferro} mg/L Fe2"
+    - if @coleta.dureza
+      %tr
+        %td Dureza
+        %td= "#{@coleta.dureza} mg/L CaCO3"
+    - if @coleta.fosfato
+      %tr
+        %td Fosfato
+        %td= "#{@coleta.fosfato} mg/L PO4"
+    - if @coleta.cloro
+      %tr
+        %td Cloro
+        %td= "#{@coleta.cloro} mg/L Cl2"
+    - if @coleta.turbidez
+      %tr
+        %td Turbidez
+        %td= "#{@coleta.turbidez} NTU"
+    - if @coleta.cloretos
+      %tr
+        %td Cloretos
+        %td= "#{@coleta.cloretos} mg/L Cl"
+    - if @coleta.dqo_campo
+      %tr
+        %td QDO de Campo
+        %td= "#{@coleta.dqo_campo} mg/L O2"
+    - if @coleta.coliformes
+      %tr
+        %td Coliformes
+        %td= "#{@coleta.coliformes} UfC/100 ml"
+    - if @coleta.dbo
+      %tr
+        %td DBO
+        %td= "#{@coleta.dbo} mg/L O2"
+    - if @coleta.detergentes
+      %tr
+        %td Detergentes
+        %td= "#{@coleta.detergentes} mg/L LAS"    
 
 %table.table.table-striped{:style=>"float: right; width: 300px"}
   %thead
     %tr
-      %th Elemento
-      %th Encontrado
+      %th Elementos encontrados
   %tbody        
-    %tr
-      %td Algas
-      %td= b(@coleta.algas)
-    %tr
-      %td Espuma
-      %td= b(@coleta.espuma)
-    %tr
-      %td Corpos flutuantes
-      %td= b(@coleta.corpos_flutuantes)
-    %tr
-      %td Material Sedimentável
-      %td= b(@coleta.materialsedimentavel)            
-    %tr
-      %td Cheiro
-      %td= b(@coleta.cheiro)
-    %tr
-      %td Plantas Aquáticas
-      %td= b(@coleta.plantas_aquaticas)
-    %tr
-      %td Peixes e outros animais
-      %td= b(@coleta.peixes_animais)
-    %tr
-      %td Cobertura Vegetal
-      %td= b(@coleta.cobertura_vegetal)
+    - if @coleta.algas
+      %tr
+        %td Algas
+    - if @coleta.espuma
+      %tr
+        %td Espuma
+    - if @coleta.corpos_flutuantes
+      %tr
+        %td Corpos flutuantes
+    - if @coleta.materialsedimentavel
+      %tr
+        %td Material Sedimentável
+    - if @coleta.cheiro
+      %tr
+        %td Cheiro
+    - if @coleta.plantas_aquaticas
+      %tr
+        %td Plantas Aquáticas
+    - if @coleta.peixes_animais
+      %tr
+        %td Peixes e outros animais
+    - if @coleta.cobertura_vegetal
+      %tr
+        %td Cobertura Vegetal
+

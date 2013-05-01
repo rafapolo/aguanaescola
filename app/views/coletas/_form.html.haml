@@ -173,6 +173,16 @@
           %span.add-on mg/L LAS
 
     .control-group
+      = f.label :responsavel, :class => 'control-label'
+      .controls
+        = f.text_field :responsavel, :class => 'text_field', :value=>current_user.nome      
+
+    .control-group
+      = f.label "Participantes", :class => 'control-label'
+      .controls
+        = f.text_area :participantes, :class => 'text_area'
+
+    .control-group
       = f.label "Observações", :class => 'control-label'
       .controls
         = f.text_area :info, :class => 'text_area'

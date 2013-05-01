@@ -13,18 +13,15 @@ task :deploy do
   deploy do
     invoke :'git:clone'
     invoke :'rails:assets_precompile'  
-    queue 'rake db:migrate RAILS_ENV="production"' 
-    queue 'bundle install' 
+    queue 'ruby --version' 
+    #queue 'rake db:migrate RAILS_ENV="production"' 
+    queue 'sudo bundle install' 
 
-	to :launch do
-	  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 #{app}/db/prod.sqlite3"
-	  queue "ln -nfs #{deploy_to}/shared/log/production.log #{app}/log/production.log"
-	  queue "rm -rf #{app}/tmp"
-	  queue "mkdir #{app}/tmp"
-	  queue "touch #{app}/tmp/restart.txt"
-	  invoke :restart
-	end
-
+  	to :launch do
+  	  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 #{app}/db/prod.sqlite3"
+  	  queue "ln -nfs #{deploy_to}/shared/log/production.log #{app}/log/production.log"
+  	  invoke :restart
+  	end
   end
 end
 

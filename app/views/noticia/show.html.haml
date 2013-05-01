@@ -1,3 +1,9 @@
-.avatar= image_tag @noticium.imagem :thumb
-
-%h2= @noticium.titulo
+%h4
+	%i.icon-comments
+	= @noticium.titulo
+%p
+	%i.icon-time
+	= format @noticium.created_at
+%p.center
+	= image_tag @noticium.imagem :thumb if @noticium.imagem.path
+= @noticium.texto.html_safe

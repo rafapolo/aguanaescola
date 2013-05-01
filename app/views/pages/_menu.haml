@@ -6,7 +6,7 @@
           %i.icon-home
           Início
       %li
-        %a{:href => "/posts"} 
+        %a{:href => "/noticias"} 
           %i.icon-comment
           Notícias
       %li.divider-vertical  
@@ -18,11 +18,11 @@
             Escolas
             %b.caret
           %ul.dropdown-menu
-            - Escola.all.each do |e|
+            - Cidade.joins(:escolas).uniq.each do |c|
               %li
-                %a{:href => "#{url_for e}"} 
+                %a{:href => "#{url_for c}"} 
                   %i.icon-book
-                  = "#{e.nome} - #{e.municipio}"
+                  = "#{c.nome} (#{c.escolas.count})"
 
           // coletas
         %li.dropdown
