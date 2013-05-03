@@ -4,31 +4,33 @@
 
 .subtitle
   %i.icon-book
-  = @coleta.escola.nome
+  %span= link_to @coleta.escola.nome, @coleta.escola
 
 .subsub
   %i.icon-globe
-  = "#{@coleta.escola.cidade.nome} · #{@coleta.escola.trecho_rio} · #{@coleta.escola.regiao_hidrografica} ·" 
+  %span= link_to @coleta.escola.cidade.nome, @coleta.escola.cidade
+  %span= " · #{@coleta.escola.trecho_rio} · #{@coleta.escola.regiao_hidrografica} ·" 
   %span= link_to @coleta.escola.comite_bacia, @coleta.escola.comite_bacia_url, :target=>"_blank"
     
 %hr
 
-%p
-  %i.icon-time
-  %span Coleta realizada
-  %span= format_datetime @coleta.hora_coleta
-
 #div
-  %p
-    %b Participantes:
+  %b Participantes:
+  %br
   = text_format @coleta.participantes
 %br
 
 - if @coleta.responsavel
   #div
-    %p
-      %b Responsável:
+    %b Responsável:
+    %br
     = @coleta.responsavel
+
+%p
+  %i.icon-time
+  %span Coleta realizada
+  %span
+    %b= format_datetime @coleta.hora_coleta    
 
 %hr
 

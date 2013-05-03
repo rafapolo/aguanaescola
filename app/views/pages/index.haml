@@ -21,7 +21,12 @@
           = format n.created_at
         %p.center
           = image_tag n.imagem :thumb if n.imagem.path
-        = n.texto.html_safe
+        #noticia
+          = n.texto.html_safe
 
   %a.left.carousel-control{"data-slide" => "prev", :href => "#slides"} ‹
   %a.right.carousel-control{"data-slide" => "next", :href => "#slides"} ›
+
+
+:javascript
+  $('.carousel').carousel({interval: 0})

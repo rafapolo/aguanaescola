@@ -4,7 +4,8 @@
 		= @escola.nome
 	.subtitle
 		%i.icon-globe
-		= "#{@escola.cidade.nome} · #{@escola.trecho_rio} · #{@escola.regiao_hidrografica} ·" 
+		%span= link_to @escola.cidade.nome, @escola.cidade
+		%span= " · #{@escola.trecho_rio} · #{@escola.regiao_hidrografica} ·" 
 		- if !@escola.comite_bacia_url.empty?
 			%span= link_to @escola.comite_bacia, @escola.comite_bacia_url, :target=>"_blank"
 		- else
