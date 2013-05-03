@@ -18,6 +18,8 @@ task :deploy do
     invoke :'rails:assets_precompile'  
 
   	to :launch do
+      queue "rm -rf #{app}/public/uploads"
+      queue "ln -nfs #{deploy_to}/shared/uploads #{app}/public/uploads"
   	  queue "ln -nfs #{deploy_to}/shared/db/prod.sqlite3 #{app}/db/prod.sqlite3"
   	  queue "ln -nfs #{deploy_to}/shared/log/production.log #{app}/log/production.log"
   	  invoke :restart
