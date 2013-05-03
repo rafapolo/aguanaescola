@@ -1,6 +1,6 @@
 class Noticium < ActiveRecord::Base
   attr_accessible :imagem, :texto, :titulo, :urlized
-  validates_presence_of :texto, :titulo
+  validates_presence_of :titulo
   default_scope order("created_at DESC")
 
   has_attached_file :imagem, :styles => {:thumb => "600x420", :mini=>"150x150"},
