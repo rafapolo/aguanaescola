@@ -1,11 +1,11 @@
 class Pessoa < ActiveRecord::Base
-  belongs_to :escola
+  has_and_belongs_to_many :escolas
 
   scope :alunos, where('is_monitor = ?', false)
   scope :monitores, where('is_monitor = ?', true)
   
-  attr_accessible :email, :nascimento, :nome, :senha, :avatar, :escola_id
-  validates_presence_of :nome, :escola
+  attr_accessible :email, :nascimento, :nome, :senha, :avatar, :escola_ids
+  validates_presence_of :nome
   validates_uniqueness_of :email
 
   has_attached_file :avatar, :styles => { :thumb => "64x64>" }, 

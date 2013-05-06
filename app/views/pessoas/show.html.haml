@@ -5,7 +5,7 @@
 	%p 
 		%i.icon-briefcase
 		%span.bold Monitor
-		= "#{@pessoa.escola.nome} - #{@pessoa.escola.cidade.nome}" if @pessoa.escola
+		= @pessoa.escolas.map{|e| e.nome}.join(', ')
 %hr
 
 - if @pessoa==current_user

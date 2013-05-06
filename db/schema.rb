@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501213116) do
+ActiveRecord::Schema.define(:version => 20130506214243) do
 
   create_table "cidades", :force => true do |t|
     t.string   "nome"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(:version => 20130501213116) do
     t.integer  "cidade_id"
   end
 
+  create_table "escolas_pessoas", :force => true do |t|
+    t.integer "pessoa_id"
+    t.integer "escola_id"
+  end
+
+  add_index "escolas_pessoas", ["escola_id"], :name => "index_escolas_pessoas_on_escola_id"
+  add_index "escolas_pessoas", ["pessoa_id"], :name => "index_escolas_pessoas_on_pessoa_id"
+
   create_table "midia", :force => true do |t|
     t.string   "titulo"
     t.text     "conteudo"
@@ -79,6 +87,11 @@ ActiveRecord::Schema.define(:version => 20130501213116) do
     t.string   "mediable_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "monitores_escolas", :force => true do |t|
+    t.integer "pessoa_id"
+    t.integer "escola_id"
   end
 
   create_table "noticia", :force => true do |t|
@@ -99,7 +112,6 @@ ActiveRecord::Schema.define(:version => 20130501213116) do
     t.boolean  "is_monitor"
     t.boolean  "is_admin"
     t.string   "email"
-    t.integer  "escola_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -107,8 +119,6 @@ ActiveRecord::Schema.define(:version => 20130501213116) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
-
-  add_index "pessoas", ["escola_id"], :name => "index_pessoas_on_escola_id"
 
 # Could not dump table "sobres" because of following StandardError
 #   Unknown type 'attachment' for column 'execucao'

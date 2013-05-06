@@ -23,5 +23,6 @@ group :development do
 	gem 'pry'
 	gem 'pry-debugger'	
 	gem 'mina'
+	gem 'awesome_print'
 	gem 'rails-erd'
 end
