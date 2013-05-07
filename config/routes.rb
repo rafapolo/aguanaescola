@@ -22,6 +22,7 @@ Aguanaescola::Application.routes.draw do
   match '/admin' => 'admin#index', :as=>:admin
 
   match "/sitemap.xml" => "pages#sitemap"
-  root :to => 'pages#index'
+  #root :to => 'pages#index'
+  root :to => 'pages#tmp'
 
 end
