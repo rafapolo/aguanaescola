@@ -9,7 +9,7 @@ module ApplicationHelper
 	end
 
 	def auth_type
-		current_user.is_admin? ? "Administrador" : "Monitor | #{current_user.escola.nome} - #{current_user.escola.cidade.nome}"
+		current_user.is_admin? ? "Administrador" : "Monitor"
 	end
 
 	def format date
