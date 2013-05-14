@@ -4,7 +4,7 @@
     - @coleta.errors.full_messages.each do |msg|
       %li= msg
 
-- if !@coleta.id && current_user.escola==nil
+- if !@coleta.id && !current_user.is_monitor
   .alert.alert-error
     %button.close{"data-dismiss" => "alert", :type => "button"} ×
     %li Somente Monitores de Escolas podem criar Coletas.
