@@ -16,6 +16,8 @@ Aguanaescola::Application.routes.draw do
 
   match '/noticias' => 'pages#noticias'
   match '/sobre' => 'pages#sobre'
+  match '/mapa' => 'pages#mapa'
+  match '/mapa_json' => 'pages#mapa_json'
   match '/login' => 'pages#login'  
   match '/logout' => 'pages#logout'
   match '/auth' => 'pages#auth'
