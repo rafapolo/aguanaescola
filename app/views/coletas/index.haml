@@ -1,0 +1,16 @@
+.title
+	%i.icon-list
+	Coletas
+
+%hr
+
+#grande
+	- @coletas.each do |c|
+		#div
+			%i.icon-book
+			%a{:href=>escola_path(c.escola)}= c.escola.nome
+			#div{:style=>"padding-left:20px"}
+				%i.icon-time
+				= format c.hora_coleta
+				\-
+				%a{:href=>coleta_path(c)}= c.local

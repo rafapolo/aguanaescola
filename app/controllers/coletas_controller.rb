@@ -1,16 +1,9 @@
 class ColetasController < ApplicationController
-  # GET /coleta
-  # GET /coleta.json
+
   def index
     @coletas = Coleta.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
-  # GET /coleta/1
-  # GET /coleta/1.json
   def show
     @coleta = Coleta.find(params[:id])
 
@@ -19,27 +12,20 @@ class ColetasController < ApplicationController
     end
   end
 
-  # GET /coleta/new
-  # GET /coleta/new.json
   def new
     @coleta = Coleta.new
     @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
-
     respond_to do |format|
       format.html # new.html.erb
     end
   end
 
-  # GET /coleta/1/edit
   def edit
     @coleta = Coleta.find(params[:id])
   end
 
-  # POST /coleta
-  # POST /coleta.json
   def create
     @coleta = Coleta.new(params[:coleta])
-
     respond_to do |format|
       if @coleta.save
         format.html { redirect_to @coleta, notice: 'Coletum was successfully created.' }
@@ -49,10 +35,7 @@ class ColetasController < ApplicationController
     end
   end
 
-  # PUT /coleta/1
-  # PUT /coleta/1.json
   def update
-    
     @coleta = Coleta.find(params[:id])
     respond_to do |format|
       if @coleta.update_attributes(params[:coleta])
@@ -63,8 +46,6 @@ class ColetasController < ApplicationController
     end
   end
 
-  # DELETE /coleta/1
-  # DELETE /coleta/1.json
   def destroy
     @coleta = Coleta.find(params[:id])
     @coleta.destroy
