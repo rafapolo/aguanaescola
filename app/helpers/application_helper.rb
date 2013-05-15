@@ -5,7 +5,7 @@ module ApplicationHelper
 	end
 
 	def current_user
-		session[:auth]
+		Pessoa.find session[:auth]
 	end
 
 	def auth_type
