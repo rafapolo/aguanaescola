@@ -7,6 +7,14 @@ class Cidade < ActiveRecord::Base
   has_many :coletas, :through=>:escolas
   default_scope order(:nome)
 
+  before_save :geocode
+
+  def geocode
+  	gps = Geocoder.search "#{self.nome}, Rio de Janeiro"
+  	self.lat = gps[0].latitude
+  	self.long = gps[0].longitude
+  end
+
   def to_param
     [id, nome.parameterize].join("-")
   end
