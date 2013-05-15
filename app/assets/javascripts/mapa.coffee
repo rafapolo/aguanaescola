@@ -7,10 +7,12 @@ $(document).ready ->
 		streetViewControl: false
 		overviewMapControl: true
 		mapTypeControl: true
-		mapTypeControlOptions: {
-			style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+		mapTypeControlOptions:
 			position: google.maps.ControlPosition.TOP_CENTER
-		}
+		zoomControl: true
+		zoomControlOptions:
+			style: google.maps.ZoomControlStyle.SMALL	
+		
 	map = new google.maps.Map(document.getElementById("mapa"), myOptions)
 
 	$.get('/mapa_json', (data) ->
