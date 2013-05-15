@@ -15,8 +15,7 @@ $(document).ready ->
 	map = new google.maps.Map(document.getElementById("mapa"), myOptions)
 
 	$.get('/mapa_json', (data) ->
-		$.each(data, (i, m) ->		
-			console.log m
+		$.each(data, (i, m) ->
 			marker = new google.maps.Marker(
 				map: map
 				url: m[0].url
