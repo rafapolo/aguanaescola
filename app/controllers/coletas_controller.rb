@@ -23,6 +23,7 @@ class ColetasController < ApplicationController
   # GET /coleta/new.json
   def new
     @coleta = Coleta.new
+    @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
 
     respond_to do |format|
       format.html # new.html.erb
