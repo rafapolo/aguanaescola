@@ -27,6 +27,14 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     end
   end
 
+  @cidades.each do |c|
+    xml.url do
+      xml.loc cidade_url(c)
+      xml.lastmod c.updated_at.to_date
+      xml.priority 0.9
+    end
+  end
+
   @escolas.each do |e|
     xml.url do
       xml.loc escola_url(e)
