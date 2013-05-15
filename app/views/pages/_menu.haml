@@ -9,7 +9,14 @@
         %a{:href => "/noticias"} 
           %i.icon-comment
           Notícias
-      %li.divider-vertical  
+      %li
+        %a{:href => "/mapa"} 
+          %i.icon-globe
+          Mapa
+      %li
+        %a{:href => "/coletas"}
+          %i.icon-list
+          Coletas          
       %ul.nav
         // escolas
         %li.dropdown
@@ -24,19 +31,9 @@
                   %i.icon-book
                   = "#{c.nome} (#{c.escolas.count})"
 
-          // coletas
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %i.icon-list
-            Coletas
-            %b.caret
-          %ul.dropdown-menu
-            - Coleta.all.each do |c|
-              %li
-                %a{:href => "#{url_for c}"} 
-                  %i.icon-list
-                  = "#{c.local} - #{c.escola.nome}"
+
     %ul.nav.pull-right  
+      %li.divider-vertical
       %li
         %a{:href => "/sobre"} 
           %i.icon-tint
