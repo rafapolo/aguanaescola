@@ -8,6 +8,7 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "paperclip"
 gem 'string-urlize'
+gem 'geocoder'
 
 # assets
 gem 'sass-rails'
