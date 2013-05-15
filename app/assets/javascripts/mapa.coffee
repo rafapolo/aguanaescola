@@ -1,5 +1,4 @@
 $(document).ready ->
-	$("iframe").load -> $(this).fadeIn(600)
 
 	myOptions =
 		center: new google.maps.LatLng(-22.22809,-42.973022)
