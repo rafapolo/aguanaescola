@@ -5,6 +5,6 @@
 	- @noticias.each do |n|
 		%li
 			%i.icon-time
-			= format n.created_at
+			= formata_data n.created_at
 			%span -
 			= link_to n.titulo, noticium_path(n)

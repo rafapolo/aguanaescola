@@ -13,7 +13,7 @@
           %td= link_to coleta.local, coleta_path(coleta)
           %td= coleta.pessoa.nome
           %td= "#{coleta.escola.nome} - #{coleta.escola.cidade.nome}"
-          %td= format_datetime coleta.hora_coleta
+          %td= formata_dataehora coleta.hora_coleta
           %td{:style=>"width:85px"}
             %a{:href=>edit_coleta_path(coleta), :class => 'btn btn-primary'} 
               %i.icon-edit

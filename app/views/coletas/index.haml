@@ -11,6 +11,6 @@
 			%a{:href=>escola_path(c.escola)}= c.escola.nome
 			#div{:style=>"padding-left:20px"}
 				%i.icon-time
-				= format c.hora_coleta
+				= formata_data c.hora_coleta
 				\-
 				%a{:href=>coleta_path(c)}= c.local

@@ -12,7 +12,7 @@ module ApplicationHelper
 		current_user.is_admin? ? "Administrador" : "Monitor"
 	end
 
-	def format date
+	def formata_data date
 		date.strftime("%d/%m/%Y")
 	end
 
@@ -20,7 +20,7 @@ module ApplicationHelper
 		t.gsub(/\n/, '<br>').html_safe if t
 	end
 
-	def format_datetime dt
+	def formata_dataehora dt
 		dt.strftime("%d/%m/%Y %H:%M%P")
 	end
 

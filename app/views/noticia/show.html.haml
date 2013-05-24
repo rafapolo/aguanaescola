@@ -3,7 +3,7 @@
 	= @noticium.titulo
 %p
 	%i.icon-time
-	= format @noticium.created_at
+	= formata_data @noticium.created_at
 %p.center
 	= image_tag @noticium.imagem :thumb if @noticium.imagem.path
 #noticia

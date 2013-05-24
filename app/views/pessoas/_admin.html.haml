@@ -15,7 +15,7 @@
           %td= m.email
           %td= m.escolas.map{|e| e.nome}.join(', ')
           %td= m.senha
-          %td= format m.created_at
+          %td= formata_data m.created_at
           %td{:style=>"width:85px"}
             %a{:href=>edit_pessoa_path(m), :class => 'btn btn-primary'} 
               %i.icon-edit

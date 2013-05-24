@@ -9,7 +9,7 @@
     %tbody
       - @noticia.each do |p|
         %tr
-          %td{:style=>"width: 70px"}= format p.created_at
+          %td{:style=>"width: 70px"}= formata_data p.created_at
           %td= link_to p.titulo, p
           %td{:style=>"width:85px"}
             %a{:href=>edit_noticium_path(p), :class => 'btn btn-primary'} 

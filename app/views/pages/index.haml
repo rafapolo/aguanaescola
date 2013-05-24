@@ -18,7 +18,7 @@
           = n.titulo
         %p
           %i.icon-time
-          = format n.created_at
+          = formata_data n.created_at
         %p.center
           = image_tag n.imagem :thumb if n.imagem.path
         #noticia

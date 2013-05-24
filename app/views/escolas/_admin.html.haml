@@ -11,7 +11,7 @@
         %tr
           %td= link_to escola.nome, escola_path(escola)
           %td= escola.cidade.nome
-          %td= format escola.created_at
+          %td= formata_data escola.created_at
           %td{:style=>"width:85px"}
             %a{:href=>edit_escola_path(escola), :class => 'btn btn-primary'} 
               %i.icon-edit
