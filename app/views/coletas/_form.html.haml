@@ -177,7 +177,7 @@
 
     .control-group
       = f.label :escola, :class => 'control-label'
-      .controls
+      .controls        
         - selected = @coleta.id && @coleta.escola ? @coleta.escola.id : ""        
         = f.select(:escola_id, @escolas,{:include_blank => 'Escolha', :selected => selected})     
 

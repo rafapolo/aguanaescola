@@ -22,6 +22,7 @@ class ColetasController < ApplicationController
 
   def edit
     @coleta = Coleta.find(params[:id])
+    @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
   end
 
   def create
