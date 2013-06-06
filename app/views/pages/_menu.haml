@@ -33,11 +33,12 @@
 
 
     %ul.nav.pull-right  
-      %li.divider-vertical
-      %li
-        %a{:href => "/sobre"} 
-          %i.icon-tint
-          Sobre o Agenda Água        
+      - unless current_user
+        %li.divider-vertical
+        %li
+          %a{:href => "/sobre"} 
+            %i.icon-tint
+            Sobre o Agenda Água        
       %li.divider-vertical              
         - if current_user
           %li.dropdown
