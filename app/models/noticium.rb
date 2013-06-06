@@ -14,6 +14,7 @@ class Noticium < ActiveRecord::Base
     end
 
     def urliza
-    	self.urlized = titulo.urlize
+    	self.titulo.strip
+      self.urlized = titulo.urlize
     end
 end

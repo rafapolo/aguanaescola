@@ -15,7 +15,13 @@ class Pessoa < ActiveRecord::Base
   
   validates_attachment :avatar,
   	:content_type => { :content_type => /image/ },
-  	:size => { :in => 0..5.megabytes }  
+  	:size => { :in => 0..5.megabytes }
+
+  before_save :trim
+  def trim
+    self.email.strip
+    self.nome.strip
+  end
 
   before_create :cria_senha
   def cria_senha
