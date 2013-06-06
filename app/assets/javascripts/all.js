@@ -2,6 +2,9 @@
 //= require_self
 //= require jquery_ujs
 //= require chosen.jquery.min
+//= require app
+//= require bootstrap-datetimepicker.min
+//= require bootstrap-datetimepicker.pt-BR
 //= require bootstrap.min
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/pt-BR
