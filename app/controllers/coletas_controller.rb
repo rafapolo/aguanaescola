@@ -31,6 +31,7 @@ class ColetasController < ApplicationController
       if @coleta.save
         format.html { redirect_to @coleta, notice: 'Coletum was successfully created.' }
       else
+        @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
         format.html { render action: "new" }
       end
     end
@@ -52,7 +53,7 @@ class ColetasController < ApplicationController
     @coleta.destroy
 
     respond_to do |format|
-      format.html { redirect_to coleta_url }
+      format.html { redirect_to "/admin/coletas" }
     end
   end
 end

@@ -5,7 +5,8 @@
         %th Local
         %th Monitor
         %th Escola
-        %th Quando
+        %th Coletada
+        %th Criada
         %th
     %tbody    
       - @coletas.each do |coleta|
@@ -13,7 +14,8 @@
           %td= link_to coleta.local, coleta_path(coleta)
           %td= coleta.pessoa.nome
           %td= "#{coleta.escola.nome} - #{coleta.escola.cidade.nome}"
-          %td= formata_dataehora coleta.hora_coleta
+          %td= formata_data coleta.hora_coleta
+          %td= formata_data coleta.created_at
           %td{:style=>"width:85px"}
             %a{:href=>edit_coleta_path(coleta), :class => 'btn btn-primary'} 
               %i.icon-edit

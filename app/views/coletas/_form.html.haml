@@ -5,7 +5,6 @@
       %li= msg
 
 - if !@coleta.id && !current_user.is_monitor
-
   .alert.alert-error
     %button.close{"data-dismiss" => "alert", :type => "button"} ×
     %li Somente Monitores de Escolas podem criar Coletas.
@@ -177,8 +176,8 @@
 
     .control-group
       = f.label :escola, :class => 'control-label'
-      .controls        
-        - selected = @coleta.id && @coleta.escola ? @coleta.escola.id : ""        
+      .controls                
+        - selected = @coleta.id && @coleta.escola ? @coleta.escola.id : ""    
         = f.select(:escola_id, @escolas,{:include_blank => 'Escolha', :selected => selected})     
 
     .control-group

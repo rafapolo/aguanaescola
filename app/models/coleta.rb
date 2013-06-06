@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Coleta < ActiveRecord::Base
 	belongs_to :escola
 	belongs_to :pessoa
@@ -6,6 +7,16 @@ class Coleta < ActiveRecord::Base
 	validates_presence_of :local, :hora_coleta, :escola, :pessoa, :participantes
 
 	default_scope order("created_at DESC")
+
+	before_validation :validate_data
+	before_save :trim
+	def trim
+		self.titulo.strip
+	end
+
+	def validate_data
+    	errors.add(:hora_coleta, "não pode ser futura") if self.hora_coleta > Time.now
+	end
 
 	def to_param
 		[id, local.parameterize].join("-")
