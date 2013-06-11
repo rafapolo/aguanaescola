@@ -9,6 +9,7 @@ gem "jquery-ui-rails"
 gem "paperclip"
 gem 'string-urlize'
 gem 'geocoder'
+gem 'airbrake' # log errors
 
 # assets
 gem 'sass-rails'

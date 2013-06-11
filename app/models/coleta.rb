@@ -11,7 +11,7 @@ class Coleta < ActiveRecord::Base
 	before_validation :validate_data
 	before_save :trim
 	def trim
-		self.titulo.strip
+		self.local.strip
 	end
 
 	def validate_data
