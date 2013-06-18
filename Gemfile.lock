@@ -28,6 +28,10 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    airbrake (3.1.8)
+      activesupport
+      builder
+      json
     arel (3.0.2)
     awesome_print (1.1.0)
     bootstrap-wysihtml5-rails (0.3.1.19)
@@ -175,6 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   awesome_print
   bootstrap-wysihtml5-rails
   coffee-rails

@@ -4,25 +4,26 @@
 
     = javascript_include_tag "all"
     = yield :javascripts
-    = stylesheet_link_tag    "all"
+    = stylesheet_link_tag    "all", :media=>"screen, print"
     = favicon_link_tag "/assets/favicon.ico"
     = csrf_meta_tags
     
     %body
       #meio      
-        .logo= image_tag "logo.png"
-        #fb-root
-        .fb-like{"data-href" => "http://agendaaguanaescola.eco.br", "data-layout" => "box_count", "data-send" => "true", "data-show-faces" => "false", :style=>"position: absolute"}
+        .logo.no-print= image_tag "logo.png"
+        .no-print
+          #fb-root
+          .fb-like{"data-href" => "http://agendaaguanaescola.eco.br", "data-layout" => "box_count", "data-send" => "true", "data-show-faces" => "false", :style=>"position: absolute"}
         / .fb-like-box{"data-header" => "false", "data-href" => "https://www.facebook.com/pages/Programa-Agenda-Água/115330381949211", "data-show-border" => "false", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "140", :style=>"position: absolute; float:left; top: 420"}
-        .contato
+        .contato.no-print
           %i.icon-envelope
             %a{:href=>"mailto:agenda.agua@gmail.com"}
               contato
-        #menu= render :partial => "pages/menu"       
+        #menu.no-print= render :partial => "pages/menu"       
         #todo= yield
-        #menu= render :partial => "pages/logos"
+        #menu.no-print= render :partial => "pages/logos"
       
-      %footer        
+      %footer.no-print
         %span{:style=>"margin-top:3px"}
           %a{:target=>"_blank", :href=>"http://www.inea.rj.gov.br/index/index.asp", :class=>"inea"}© Agenda Água na Escola - SEA/INEA/RJ
         %a{:target=>"_blank", :href=>"http://extrapolo.com", :class=>"extrapolo"}ExtraPolo Softwares Culturais
