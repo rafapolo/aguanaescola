@@ -17,7 +17,7 @@
       = f.select(:cidade_id, Cidade.all.collect {|p| [ p.nome, p.id ] }, {:include_blank => 'Selecione...', :selected => selected})
 
   .control-group
-    = f.label "Techo do Rio", :class => 'control-label'
+    = f.label "Trecho do Rio", :class => 'control-label'
     .controls
       = f.text_field :trecho_rio, :class => 'text_field'
 
