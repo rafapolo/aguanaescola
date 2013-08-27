@@ -75,17 +75,17 @@
       .controls
         .input-append
           = f.number_field :condicoes_climaticas, :step=>'0.1', :class => 'number_field'
-          %span.add-on C°
+          %span.add-on °C
 
     .control-group
       = f.label "Temperatura Ambiente", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :temperatura_ambiente, :step=>'0.1', :class => 'number_field'
-          %span.add-on C°
+          %span.add-on °C
 
     .control-group
-      = f.label "pH", :class => 'control-label'
+      = f.label 'pH', 'pH', :class => 'control-label'
       .controls
         = f.number_field :ph, :step=>'0.1', :class => 'number_field'
     
@@ -94,35 +94,51 @@
       .controls
         .input-append
           = f.number_field :oxigenio_dissolvido, :step=>'0.1', :class => 'number_field'
-          %span.add-on mg/L O2
+          %span
+            .add-on 
+              %span mg/L O
+              %sub 2
 
     .control-group
       = f.label "Amônia", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :amonia, :step=>'0.1', :class => 'number_field'
-          %span.add-on mg/L N-NH4
+          %span
+            .add-on 
+              %span mg/L N-NH
+              %sub 4
     
     .control-group
       = f.label "Ferro", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :ferro, :step=>'0.1', :class => 'number_field'
-          %span.add-on mg/L Fe2
+          %span
+            .add-on 
+              %span mg/L Fe
+              %sub 2
 
     .control-group
       = f.label "Fosfato", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :fosfato, :step=>'0.1', :class => 'number_field'
-          %span.add-on mg/L PO4
+          %span
+            .add-on 
+              %span mg/L PO
+              %sub 4
 
     .control-group
       = f.label "Cloro", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :cloro, :step=>'0.1', :class => 'number_field'      
-          %span.add-on mg/L Cl2
+          %span
+            .add-on 
+              %span g/L Cl
+              %sub 2
+
     .control-group
       = f.label "Turbidez", :class => 'control-label'
       .controls
@@ -142,14 +158,20 @@
       .controls
         .input-append
           = f.number_field :dureza, :step=>'0.1', :class => 'number_field'            
-          %span.add-on mg/L CaCO3
+          %span
+            .add-on 
+              %span mg/L CaCO
+              %sub 3
         
     .control-group
-      = f.label "DQO de Campo", :class => 'control-label'
+      = f.label "DQO de Campo", "DQO de Campo", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :dqo_campo, :step=>'0.1', :class => 'number_field'      
-          %span.add-on mg/L O2
+          %span
+            .add-on 
+              %span mg/L
+              %sub 2
         
     .control-group
       = f.label "Ecolli e Coliformes", :class => 'control-label'
@@ -159,11 +181,14 @@
           %span.add-on UfC/100 ml
         
     .control-group
-      = f.label "DBO a temperatura ambiente", :class => 'control-label'
+      = f.label "DBO a temperatura ambiente", "DBO a temperatura ambiente", :class => 'control-label'
       .controls
         .input-append
           = f.number_field :dbo, :step=>'0.1', :class => 'number_field'      
-          %span.add-on mg/L O2
+          %span
+            .add-on 
+              %span mg/L O
+              %sub 2
         
     .control-group
       = f.label "Detergentes", :class => 'control-label'

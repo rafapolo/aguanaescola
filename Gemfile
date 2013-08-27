@@ -27,4 +27,7 @@ group :development do
 	gem 'mina'
 	gem 'awesome_print'
 	gem 'rails-erd'
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'meta_request'
 end
