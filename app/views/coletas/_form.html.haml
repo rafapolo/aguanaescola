@@ -18,10 +18,9 @@
 
     .control-group
       = f.label "Hora da Coleta", :class => 'control-label'
-      .controls
-        - now = Time.now.strftime("%d/%m/%Y %H:%M")
+      .controls                
         #coleta_datepicker.input-append.date        
-          %input{"data-format" => "dd/MM/yyyy hh:mm", :type => "text", :name=>"coleta[hora_coleta]", :value=>now}/
+          %input{"data-format" => "dd/MM/yyyy hh:mm", :type => "text", :name=>"coleta[hora_coleta]", :value=>@data}/
           %span.add-on
             %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
           :javascript
@@ -202,7 +201,9 @@
     .control-group
       = f.label :escola, :class => 'control-label'
       .controls                
-        - selected = @coleta.id && @coleta.escola ? @coleta.escola.id : ""    
+        - selected = @coleta.id && @coleta.escola ? @coleta.escola.id : ""
+        - if @coleta.id && !current_user.escolas.include?(@coleta.escola)
+          - @escolas = [@coleta.escola].collect {|p| [ p.nome, p.id ] } # admin edita qq escola
         = f.select(:escola_id, @escolas,{:include_blank => 'Escolha', :selected => selected})     
 
     .control-group
