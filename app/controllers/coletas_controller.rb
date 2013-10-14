@@ -14,6 +14,7 @@ class ColetasController < ApplicationController
 
   def new
     @coleta = Coleta.new
+    @data = Time.now.strftime("%d/%m/%Y %H:%M")
     @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
     respond_to do |format|
       format.html # new.html.erb
@@ -22,6 +23,7 @@ class ColetasController < ApplicationController
 
   def edit
     @coleta = Coleta.find(params[:id])
+    @data = @coleta.hora_coleta.strftime("%d/%m/%Y %H:%M")
     @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
   end
 
@@ -39,6 +41,8 @@ class ColetasController < ApplicationController
 
   def update
     @coleta = Coleta.find(params[:id])
+    @data = @coleta.hora_coleta.strftime("%d/%m/%Y %H:%M")
+    @escolas = current_user.escolas.collect {|p| [ p.nome, p.id ] }
     respond_to do |format|
       if @coleta.update_attributes(params[:coleta])
         format.html { redirect_to @coleta, notice: 'Coletum was successfully updated.' }

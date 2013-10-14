@@ -15,7 +15,9 @@ class Coleta < ActiveRecord::Base
 	end
 
 	def validate_data
-    	errors.add(:hora_coleta, "não pode ser futura") if self.hora_coleta > Time.now
+    	if self.hora_coleta
+    		errors.add(:hora_coleta, "não pode ser futura") if self.hora_coleta.to_date > Time.now.to_date
+    	end
 	end
 
 	def to_param
