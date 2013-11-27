@@ -8,7 +8,7 @@ class AdminController < ApplicationController
   end
 
   def index
-  	admin = current_user.is_monitor? ? "/admin/coletas" : "/admin/monitores"
+  	admin = current_user && current_user.is_monitor? ? "/admin/coletas" : "/admin/monitores"
     redirect_to admin
   end
   
