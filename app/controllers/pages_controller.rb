@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 	end
 
 	def auth
-		if params[:auth] && @pessoa = Pessoa.find_by_email_and_senha(params[:auth][:email], params[:auth][:senha])
+		if params[:auth] && @pessoa = Pessoa.find_by_email_and_senha(params[:auth][:email].gsub(' ', ''), params[:auth][:senha].gsub(' ', ''))
 			session[:auth] = @pessoa.id
 			redirect_to admin_path
 		else
