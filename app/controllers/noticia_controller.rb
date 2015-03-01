@@ -6,6 +6,7 @@ class NoticiaController < ApplicationController
 
   def show
     @noticium = Noticium.find_by_urlized(params[:id])
+    redirect_to "/noticias", notice: "Notícia não encontrada" unless @noticium
   end
 
   def new
