@@ -2,21 +2,21 @@
   .navbar-inner
     %ul.nav
       %li
-        %a{:href => "/"} 
+        %a{:href => "/"}
           %i.icon-home
           Início
       %li
-        %a{:href => "/noticias"} 
+        %a{:href => "/noticias"}
           %i.icon-comment
           Notícias
       %li
-        %a{:href => "/mapa"} 
+        %a{:href => "/mapa"}
           %i.icon-globe
           Mapa
       %li
         %a{:href => "/coletas"}
           %i.icon-list
-          Coletas          
+          Coletas
       %ul.nav
         // escolas
         %li.dropdown
@@ -27,19 +27,19 @@
           %ul.dropdown-menu
             - Cidade.joins(:escolas).uniq.each do |c|
               %li
-                %a{:href => "#{url_for c}"} 
+                %a{:href => "#{url_for c}"}
                   %i.icon-book
                   = "#{c.nome} (#{c.escolas.count})"
 
 
-    %ul.nav.pull-right  
+    %ul.nav.pull-right
       - unless current_user
         %li.divider-vertical
         %li
-          %a{:href => "/sobre"} 
+          %a{:href => "/sobre"}
             %i.icon-tint
-            Sobre o Agenda Água        
-      %li.divider-vertical              
+            Sobre o Agenda Água
+      %li.divider-vertical
         - if current_user
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -48,28 +48,28 @@
               %b.caret
             %ul.dropdown-menu
               %li
-                %a{:href => "#{url_for current_user}"} 
+                %a{:href => "#{url_for current_user}"}
                   %i.icon-user
-                  Meu Perfil              
-              - if current_user.is_admin? || current_user.is_monitor?
+                  Meu Perfil
+              - if current_user && (current_user.is_admin? || current_user.is_monitor?)
                 %li.divider
                 %li
-                  %a{:href => "/admin"} 
+                  %a{:href => "/admin"}
                     %i.icon-lock
                     Administrar
               - else
                 %li
-                  %a{:href => "#{url_for current_user.escola}"} 
+                  %a{:href => "#{url_for current_user.escola}"}
                     %i.icon-book
                     Minha Escola
 
               %li.divider
               %li
-                %a{:href => "/logout"} 
+                %a{:href => "/logout"}
                   %i.icon-off
                   Sair
         - else
           %li
-            %a{:href => "/login"} 
+            %a{:href => "/login"}
               %i.icon-lock
               Acessar

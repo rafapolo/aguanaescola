@@ -1,26 +1,26 @@
-%h4{:style=>"margin-bottom: 25px; margin-left:15px"} 
+%h4{:style=>"margin-bottom: 25px; margin-left:15px"}
 	%i.icon-lock
 	= "Área do #{auth_type}"
 
 %ul.nav.nav-tabs
-	- if current_user.is_admin?
+	- if current_user && current_user.is_admin?
 		%li
-			%a{:href => "/admin/sobre"} 
+			%a{:href => "/admin/sobre"}
 				%i.icon-tint
 				Sobre
 		%li
-			%a{:href => "/admin/noticia"} 
+			%a{:href => "/admin/noticia"}
 				%i.icon-comments
 				Notícias
 		%li
-			%a{:href => "/admin/monitores"} 
+			%a{:href => "/admin/monitores"}
 				%i.icon-user
 				= "Monitores (#{@monitores_count})"
 		%li
-			%a{:href => "/admin/escolas"} 
+			%a{:href => "/admin/escolas"}
 				%i.icon-book
 				= "Escolas (#{@escolas_count})"
 	%li
-		%a{:href => "/admin/coletas"} 
+		%a{:href => "/admin/coletas"}
 			%i.icon-list
 			= "Coletas (#{@coletas_count})"
