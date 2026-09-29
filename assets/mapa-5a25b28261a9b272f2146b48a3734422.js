@@ -1,1 +1,21 @@
-(function(){$(document).ready(function(){var e,t;return t={center:new google.maps.LatLng(-22.22809,-42.973022),zoom:8,mapTypeId:google.maps.MapTypeId.ROADMAP,streetViewControl:!1,overviewMapControl:!0,mapTypeControl:!0,mapTypeControlOptions:{position:google.maps.ControlPosition.TOP_CENTER},zoomControl:!0,zoomControlOptions:{style:google.maps.ZoomControlStyle.SMALL}},e=new google.maps.Map(document.getElementById("mapa"),t),$.get("/mapa_json",function(t){return $.each(t,function(t,n){var r;return r=new google.maps.Marker({map:e,url:n[0].url,position:new google.maps.LatLng(n[0].lat,n[0].long),icon:"/assets/waterdrop.png"}),google.maps.event.addListener(r,"click",function(){return window.open("/cidades/"+r.url)})})})})}).call(this);
+$(document).ready(function () {
+  var map = L.map("mapa").setView([-22.4689, -43.5], 9);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  var cidades = [
+    ["7-barra-mansa", "Barra Mansa", -22.5440, -44.1714],
+    ["55-petropolis", "Petrópolis", -22.5050, -43.1789],
+    ["59-porto-real", "Porto Real", -22.4172, -44.2953],
+    ["63-resende", "Resende", -22.4689, -44.4467],
+    ["86-teresopolis", "Teresópolis", -22.4124, -42.9660]
+  ];
+
+  cidades.forEach(function (c) {
+    L.marker([c[2], c[3]], { title: c[1] })
+      .addTo(map)
+      .on("click", function () { window.open("cidades/" + c[0] + ".html"); });
+  });
+});
